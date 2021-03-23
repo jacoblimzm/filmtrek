@@ -1,7 +1,8 @@
 import "../App.css";
 import axios from "axios";
-
 import { useEffect, useState } from "react";
+import VideoPlayer from "./VideoPlayer"
+
 
 function App() {
 
@@ -47,7 +48,7 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World!</h1>
-      
+      <VideoPlayer />
     </div>
   );
 }
