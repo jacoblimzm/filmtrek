@@ -13,3 +13,6 @@ const getSpotifyTokenRegular = () => {
     })
   }
   
+// Spotify Endpoints:
+// Get All Categories: https://api.spotify.com/v1/browse/categories
+// 
