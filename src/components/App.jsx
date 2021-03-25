@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import VideoPlayer from "./VideoPlayer";
 import SearchResults from "./SearchResults";
 import dotenv from "dotenv";
+dotenv.config();
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
       "https://api.spotify.com/v1/browse/categories?country=SG",
       {
         headers: {
-          Authorization: "Bearer " + spotifyToken,
+          Authorization: "Bearer " + token,
         },
       }
     );
@@ -37,9 +38,6 @@ function App() {
     console.log(response.data);
   };
 
-  // const getSpotifyCategories = async () => {
-    
-  // };
 
   
 
