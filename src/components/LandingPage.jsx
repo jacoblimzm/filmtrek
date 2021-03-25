@@ -24,10 +24,11 @@ const LandingPage = ({handleUserSearch, popFilms}) => {
     const handleSubmit = (e) => {
         const encodedSearch = encodeURI(e.target.searchValue.value);
         handleUserSearch(encodedSearch);
+        e.preventDefault();
     }
 
   return (
-    <div id="landing-page" style={getRandomMovieBackdrop()}>
+    <div className="landing-page" style={getRandomMovieBackdrop()}>
       <h1>Hello World!</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" name="searchValue" />

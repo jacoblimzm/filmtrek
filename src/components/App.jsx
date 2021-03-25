@@ -1,4 +1,5 @@
 import filmsData from "../popularFilmResults.json";
+import albumsData from "../spotifyAlbums.json";
 import axios from "axios";
 import dotenv from "dotenv";
 import { useEffect, useState } from "react";
@@ -6,15 +7,14 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 import SearchResults from "./SearchResults";
 import Nav from "./Nav";
-import LandingPage from "./LandingPage"
+import LandingPage from "./LandingPage";
 
 dotenv.config();
 
 function App() {
   const [spotifyToken, setSpotifyToken] = useState("");
   const [popFilms, setPopFilms] = useState(filmsData);
-  const [searchFilms, setSearchFilms] = useState([]);
-
+  const [searchFilms, setSearchFilms] = useState(albumsData);
 
   const getSpotifyToken = async () => {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -65,27 +65,28 @@ function App() {
     // getPopularMovies();
   }, []);
 
-  const handleSubmit = (e) => {
-    
-  };
-
   const handleUserSearch = (query) => {
     const encodedSearch = encodeURI(query);
     searchSpotifyAlbums(encodedSearch);
     searchMovies(encodedSearch);
-    
-  } 
+  };
 
   return (
     <div className="App">
       <Nav />
-      <LandingPage handleUserSearch={handleUserSearch} popFilms={popFilms}/>
-      <div className="results-page">
-        <h1>RESULTS</h1>
-        <div className="film-search-results"></div>
-      </div>
+      {/* <LandingPage handleUserSearch={handleUserSearch} popFilms={popFilms}/> */}
 
-      <div className="album-search-results"></div>
+      <div className="results-page container">
+        <h1>RESULTS</h1>
+        <div className="row">
+          <div className="film-search-results col-md">
+            <h1>FILMS</h1>
+          </div>
+          <div className="album-search-results col-md">
+            <h1>ALBUMS</h1>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
