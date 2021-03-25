@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+  overflow: auto;
+}
+
 #landing-page {
   position: fixed;
   min-width: 100%;
@@ -11,10 +18,9 @@
 }
 
 #album-search-results {
-    display: flex;
+  display: flex;
 }
 
-
 #film-search-results {
-    display: flex;
+  display: flex;
 }

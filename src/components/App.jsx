@@ -2,36 +2,18 @@ import filmsData from "../popularFilmResults.json";
 import axios from "axios";
 import dotenv from "dotenv";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 import SearchResults from "./SearchResults";
-import Nav from "./Nav"
+import Nav from "./Nav";
+import LandingPage from "./LandingPage"
 
 dotenv.config();
 
 function App() {
   const [spotifyToken, setSpotifyToken] = useState("");
   const [popFilms, setPopFilms] = useState(filmsData);
-
-  const getRandomMovieBackdrop = () => {
-    if (popFilms.results) {
-      const randomMovieSelection = Math.floor(
-        Math.random() * popFilms.results.length
-      );
-      console.log(randomMovieSelection);
-      const randomBackdropPath =
-        popFilms.results[randomMovieSelection].backdrop_path;
-      const styles = {
-        backgroundImage: `url(https://image.tmdb.org/t/p/original${randomBackdropPath})`,
-      };
-      return styles;
-    } else {
-      const styles = {
-        backgroundColor: "#FFFF",
-      };
-      return styles;
-    }
-  };
+  const [searchFilms, setSearchFilms] = useState([]);
 
 
   const getSpotifyToken = async () => {
@@ -45,11 +27,11 @@ function App() {
         Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
       },
     });
-
     const token = tokenResponse.data.access_token;
     // console.log(token);
     setSpotifyToken(token);
   };
+
   const getPopularMovies = async () => {
     const TMDBapi = process.env.REACT_APP_TMDB_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMDBapi}&language=en-US`;
@@ -71,13 +53,11 @@ function App() {
 
   const searchMovies = async (query) => {
     const TMDBapi = process.env.REACT_APP_TMDB_API_KEY;
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${TMDBapi}&language=en-US&query=${query}&page=1`
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${TMDBapi}&language=en-US&query=${query}&page=1`;
 
     const response = await axios.get(url);
-
     console.log(response.data.results);
-  }
-
+  };
 
   useEffect(() => {
     // ===== Execute Upon Pageload
@@ -86,41 +66,28 @@ function App() {
   }, []);
 
   const handleSubmit = (e) => {
-    const encodedSearch = encodeURI(e.target.searchValue.value) 
+    
+  };
 
-    console.log(encodedSearch)
+  const handleUserSearch = (query) => {
+    const encodedSearch = encodeURI(query);
     searchSpotifyAlbums(encodedSearch);
     searchMovies(encodedSearch);
-    e.preventDefault();
-  }
+    
+  } 
 
   return (
     <div className="App">
       <Nav />
-      <div id="landing-page" style={getRandomMovieBackdrop()}>
-        <h1>Hello World!</h1>
-        <form onSubmit={handleSubmit}>
-          <input type="text" name="searchValue" />
-          <button type="submit">Search</button>
-        </form>
+      <LandingPage handleUserSearch={handleUserSearch} popFilms={popFilms}/>
+      <div className="results-page">
+        <h1>RESULTS</h1>
+        <div className="film-search-results"></div>
       </div>
-      <div id="film-search-results"></div>
-      <div id="album-search-results"></div>
+
+      <div className="album-search-results"></div>
     </div>
   );
 }
 
 export default App;
-
-{
-  /* <Form>
-  <FormGroup>
-    <Form.Label>Search for a film</Form.Label>
-    <Form.Control type="text" placeholder="search" />
-  </FormGroup>
-  <Button variant="primary" type="submit">
-    Search
-  </Button>
-</Form>; */
-}
-
