@@ -9,7 +9,7 @@ body,
   overflow: auto;
 }
 
-#landing-page {
+.landing-page {
   position: fixed;
   min-width: 100%;
   min-height: 100%;
@@ -17,10 +17,13 @@ body,
   background-position: center;
 }
 
-#album-search-results {
-  display: flex;
+.results-page {
+    
+}
+.album-search-results {
+  
 }
 
-#film-search-results {
-  display: flex;
+.film-search-results {
+  
 }
