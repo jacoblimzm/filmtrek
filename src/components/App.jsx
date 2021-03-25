@@ -2,29 +2,29 @@ import "../App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import VideoPlayer from "./VideoPlayer";
+import SearchResults from "./SearchResults";
+import dotenv from "dotenv";
 
 function App() {
+
   const [spotifyToken, setSpotifyToken] = useState("");
 
-  const ClientId = "8976f20ccda14b2baa377e9f3b92f75a";
-  const ClientSecret = "ca3599130ebc4f7bbdf2a83b1f81a67b";
-  const tokenEP = "https://accounts.spotify.com/api/token";
-  const data = "grant_type=client_credentials";
-
   const getSpotifyToken = async () => {
-    const response = await axios.post(tokenEP, data, {
+    const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+    const clientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
+    const tokenEP = "https://accounts.spotify.com/api/token";
+    const data = "grant_type=client_credentials";
+    const tokenResponse = await axios.post(tokenEP, data, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: "Basic " + btoa(ClientId + ":" + ClientSecret),
+        Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
       },
     });
 
-    const token = response.data.access_token;
+    const token = tokenResponse.data.access_token;
     console.log(token);
-    setSpotifyToken(token);
-  };
+    // setSpotifyToken(token);
 
-  const getSpotifyCategories = async () => {
     const response = await axios.get(
       "https://api.spotify.com/v1/browse/categories?country=SG",
       {
@@ -37,26 +37,42 @@ function App() {
     console.log(response.data);
   };
 
-  const API_KEY = "AIzaSyDOAfxXWYQaMahgtIWanYRKBBMDr5oFVBU";
-  const searchEP = "https://www.googleapis.com/youtube/v3/search";
+  // const getSpotifyCategories = async () => {
+    
+  // };
+
+  
 
   const getYoutubeSearchResults = async () => {
+    const YTapi = process.env.REACT_APP_YT_API_KEY;
+    const searchEP = "https://www.googleapis.com/youtube/v3/search";
+
     const response = await axios.get(
-      "https://www.googleapis.com/youtube/v3/search?q=interstellar%20album&part=snippet&type=video&key=AIzaSyDOAfxXWYQaMahgtIWanYRKBBMDr5oFVBU&maxResults=10&videoEmbeddable=true"
+      `https://www.googleapis.com/youtube/v3/search?q=interstellar%20album&part=snippet&type=video&key=${YTapi}&maxResults=10&videoEmbeddable=true`
     );
 
     console.log(response.data);
   };
+
+  const getPopularMovies = async () => {
+    const TMDBapi = process.env.REACT_APP_TMDB_API_KEY;
+    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMDBapi}&language=en-US`;
+    const response = await axios.get(url);
+    const filmsArr = response.data;
+
+    console.log(filmsArr);
+  };
+
   useEffect(() => {
-    // getSpotifyToken();
-    // getSpotifyCategories();
-    // getYoutubeSearchResults()
+    getSpotifyToken();
+    
+    getYoutubeSearchResults()
+    getPopularMovies();
   }, []);
 
   return (
     <div className="App">
       <h1>Hello World!</h1>
-      <VideoPlayer />
     </div>
   );
 }
