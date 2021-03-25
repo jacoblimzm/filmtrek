@@ -1,9 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import filmsData from "../popularFilmResults.json";
+import axios from "axios";
+import dotenv from "dotenv";
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom"
 import VideoPlayer from "./VideoPlayer";
 import SearchResults from "./SearchResults";
-import dotenv from "dotenv";
+import Nav from "./Nav"
+
 dotenv.config();
 
 function App() {
@@ -30,9 +33,6 @@ function App() {
     }
   };
 
-  const handleSubmit = (e) => {
-    console.log(e.target.value);
-  };
 
   const getSpotifyToken = async () => {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -50,43 +50,56 @@ function App() {
     // console.log(token);
     setSpotifyToken(token);
   };
-
-  const getSpotifyAlbums = async () => {
-    const url = "https://api.spotify.com/v1/search?q=interstellar&type=album";
-    const response = await axios.get(url, {
-      headers: {
-        Authorization: "Bearer " + spotifyToken,
-      },
-    });
-    console.log(response.data);
-  };
-
   const getPopularMovies = async () => {
     const TMDBapi = process.env.REACT_APP_TMDB_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMDBapi}&language=en-US`;
     const response = await axios.get(url);
     const filmsArr = response.data;
-
     // console.log(filmsArr);
     setPopFilms(filmsArr);
   };
 
+  const searchSpotifyAlbums = async (query) => {
+    const url = `https://api.spotify.com/v1/search?q=${query}&type=album`;
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: "Bearer " + spotifyToken,
+      },
+    });
+    console.log(response.data.albums.items);
+  };
+
+  const searchMovies = async (query) => {
+    const TMDBapi = process.env.REACT_APP_TMDB_API_KEY;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${TMDBapi}&language=en-US&query=${query}&page=1`
+
+    const response = await axios.get(url);
+
+    console.log(response.data.results);
+  }
+
+
   useEffect(() => {
+    // ===== Execute Upon Pageload
     // getSpotifyToken();
     // getPopularMovies();
   }, []);
 
-  // const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
+    const encodedSearch = encodeURI(e.target.searchValue.value) 
 
-  //   e.preventDefault();
-  // }
+    console.log(encodedSearch)
+    searchSpotifyAlbums(encodedSearch);
+    searchMovies(encodedSearch);
+    e.preventDefault();
+  }
 
   return (
     <div className="App">
-
+      <Nav />
       <div id="landing-page" style={getRandomMovieBackdrop()}>
         <h1>Hello World!</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input type="text" name="searchValue" />
           <button type="submit">Search</button>
         </form>
