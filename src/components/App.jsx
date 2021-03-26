@@ -72,22 +72,46 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Nav />
-      {/* <LandingPage handleUserSearch={handleUserSearch} popFilms={popFilms}/> */}
+    <Router>
+      <div className="App">
+        <Nav />
+        {/* <LandingPage handleUserSearch={handleUserSearch} popFilms={popFilms}/> */}
 
-      <div className="results-page container">
-        <h1>RESULTS</h1>
-        <div className="row">
-          <div className="film-search-results col-md">
-            <h1>FILMS</h1>
-          </div>
-          <div className="album-search-results col-md">
-            <h1>ALBUMS</h1>
+        <div className="results-page container-fluid">
+          <h1>RESULTS</h1>
+          <div className="row">
+            <div className="film-search-results col-md-6">
+              <h1>FILMS</h1>
+              <div className="row">
+                <div className="film-item col-md-4">hello</div>
+                <div className="film-item col-md-4">hello</div>
+                <div className="film-item col-md-4">hello</div>
+                <div className="film-item col-md-4">hello</div>
+              </div>
+            </div>
+            <div className="album-search-results col-md-6">
+              <div className="row">
+                <div className="col-12">
+                  <h1>ALBUMS</h1>
+                </div>
+                <div className="col-12">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
