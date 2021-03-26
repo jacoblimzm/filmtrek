@@ -35,7 +35,7 @@ const Nav = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#" tabIndex="-1">
-                Movies
+                Details
               </a>
             </li>
           </ul>

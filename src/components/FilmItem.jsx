@@ -4,7 +4,6 @@
 
 const FilmItem = ({ film }) => {
 
-
   return (
     <div className="film-item col-md-6 col-lg-4 pb-5">
       <img

@@ -23,9 +23,6 @@ body,
   justify-content: space-around;
 }
 
-/* .film-search-results ::-webkit-scrollbar {
-  width: 20px;
-} */
 
 .film-search-results {
     height: 70vh;
@@ -49,3 +46,36 @@ body,
 .selected-album img {
     max-height: 120px;
 }
+
+
+/* FILM DETAILS  */
+.film-backdrop {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.film-title {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    color: white;
+    font-size: 3em;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.5));
+    padding: 0.25em 1.5rem;
+  }
+
+  .film-meta {
+    padding: 1em 0.5em;
+    line-height: 1.5;
+    color: white;
+    background-color: #536162;
+  }
+
+  .film-meta-poster {
+    float: left;
+    width: 30%;
+    margin-left: 2em;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+  }
