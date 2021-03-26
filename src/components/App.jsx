@@ -77,16 +77,49 @@ function App() {
         <Nav />
         {/* <LandingPage handleUserSearch={handleUserSearch} popFilms={popFilms}/> */}
 
-        <div className="results-page container-fluid">
+        <div className="results-page container-fluid ">
           <h1>RESULTS</h1>
           <div className="row">
-            <div className="film-search-results col-md-6">
+            <div className="col-md-6">
               <h1>FILMS</h1>
-              <div className="row">
-                <div className="film-item col-md-4">hello</div>
-                <div className="film-item col-md-4">hello</div>
-                <div className="film-item col-md-4">hello</div>
-                <div className="film-item col-md-4">hello</div>
+              <div className="film-search-results row">
+                
+                <div className="film-item col-md-6 col-lg-4 mb-4">
+                  <img
+                    className="movie-img"
+                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[1].poster_path}`}
+                  />
+                </div>
+                <div className="film-item col-md-6 col-lg-4 mb-4">
+                  <img
+                    className="movie-img"
+                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[2].poster_path}`}
+                  />
+                </div>
+                <div className="film-item col-md-6 col-lg-4 mb-4">
+                  <img
+                    className="movie-img"
+                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[3].poster_path}`}
+                  />
+                </div>
+                <div className="film-item col-md-6 col-lg-4 mb-4">
+                  <img
+                    className="movie-img"
+                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[3].poster_path}`}
+                  />
+                </div>
+                <div className="film-item col-md-6 col-lg-4 mb-4">
+                  <img
+                    className="movie-img"
+                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[3].poster_path}`}
+                  />
+                </div>
+                <div className="film-item col-md-6 col-lg-4 mb-4">
+                  <img
+                    className="movie-img"
+                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[3].poster_path}`}
+                  />
+                </div>
               </div>
             </div>
             <div className="album-search-results col-md-6">

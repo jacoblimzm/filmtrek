@@ -17,11 +17,17 @@ body,
   background-position: center;
 }
 
-
 .film-container {
-    display: flex;
-    flex-wrap: row wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: row wrap;
+  justify-content: space-around;
 }
 
+/* .film-search-results ::-webkit-scrollbar {
+  width: 20px;
+} */
 
+.film-search-results {
+    height: 70vh;
+    overflow: auto;
+}
