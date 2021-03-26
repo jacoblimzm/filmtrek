@@ -47,6 +47,10 @@ body,
     max-height: 120px;
 }
 
+/* ALBUM DETAILS */
+.album-details img {
+    max-width: 40%;
+}
 
 /* FILM DETAILS  */
 .film-backdrop {
