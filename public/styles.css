@@ -33,7 +33,7 @@ body,
 }
 
 .album-search-results {
-    height: 30vh;
+    height: 25vh;
     overflow: auto;
 }
 
@@ -41,3 +41,11 @@ body,
     max-height: 120px;
 }
 
+.selected-album {
+    height: 40vh;
+    overflow: auto;
+}
+
+.selected-album img {
+    max-height: 120px;
+}

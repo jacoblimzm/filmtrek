@@ -94,43 +94,53 @@ function App() {
                 <div className="col-12">
                   <h1>ALBUMS</h1>
                   <div className="album-search-results row">
-                    <div className="album-item col-md-6 col-lg-4 py-4">
+                    <div className="col-md-6 col-lg-4 pb-5">
                       <img src={searchAlbums[0].images[1].url} />
                     </div>
-                    <div className="album-item col-md-6 col-lg-4 py-4">
+                    <div className="col-md-6 col-lg-4 pb-5">
                       <img src={searchAlbums[0].images[1].url} />
                     </div>
-                    <div className="album-item col-md-6 col-lg-4 py-4">
+                    <div className="col-md-6 col-lg-4 pb-5">
                       <img src={searchAlbums[0].images[1].url} />
                     </div>
-                    <div className="album-item col-md-6 col-lg-4 py-4">
+                    <div className="col-md-6 col-lg-4 pb-5">
                       <img src={searchAlbums[0].images[1].url} />
                     </div>
-                    <div className="album-item col-md-6 col-lg-4 py-4">
+                    <div className="col-md-6 col-lg-4 pb-5">
                       <img src={searchAlbums[0].images[1].url} />
                     </div>
-                    <div className="album-item col-md-6 col-lg-4 py-4">
+                    <div className="col-md-6 col-lg-4 pb-5">
                       <img src={searchAlbums[0].images[1].url} />
                     </div>
-                    <div className="album-item col-md-6 col-lg-4 py-4">
+                    <div className="col-md-6 col-lg-4 pb-5">
                       <img src={searchAlbums[0].images[1].url} />
                     </div>
-                    <div className="album-item col-md-6 col-lg-4 py-4">
+                    <div className="col-md-6 col-lg-4 pb-5">
                       <img src={searchAlbums[0].images[1].url} />
                     </div>
                   </div>
                 </div>
                 <div className="col-12">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                  </p>
+                  <h2>Selected Album</h2>
+                  <div className="row selected-album">
+                    <div className="col-3">
+                      <img src={searchAlbums[0].images[1].url} />
+                    </div>
+                    <div className="col-9">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li>
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
