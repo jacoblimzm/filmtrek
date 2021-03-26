@@ -78,10 +78,23 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        {/* <LandingPage handleUserSearch={handleUserSearch} popFilms={popFilms}/> */}
-        {/* <ResultsPage films={popFilms}/> */}
-        <DetailsPage />
-        </div>
+        <Switch>
+          <Route exact path="/">
+            <LandingPage
+              handleUserSearch={handleUserSearch}
+              popFilms={popFilms}
+            />
+          </Route>
+
+          <Route path="/results">
+            <ResultsPage films={popFilms} />
+          </Route>
+
+          <Route path="/details">
+            <DetailsPage />
+          </Route>
+        </Switch>
+      </div>
     </Router>
   );
 }

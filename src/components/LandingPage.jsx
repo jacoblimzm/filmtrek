@@ -2,13 +2,13 @@
 const LandingPage = ({handleUserSearch, popFilms}) => {
 
     const getRandomMovieBackdrop = () => {
-        if (popFilms.results) {
+        if (popFilms) {
           const randomMovieSelection = Math.floor(
-            Math.random() * popFilms.results.length
+            Math.random() * popFilms.length
           );
           console.log(randomMovieSelection);
           const randomBackdropPath =
-            popFilms.results[randomMovieSelection].backdrop_path;
+            popFilms[randomMovieSelection].backdrop_path;
           const styles = {
             backgroundImage: `url(https://image.tmdb.org/t/p/original${randomBackdropPath})`,
           };
