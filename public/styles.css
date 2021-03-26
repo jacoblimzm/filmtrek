@@ -31,3 +31,13 @@ body,
     height: 70vh;
     overflow: auto;
 }
+
+.album-search-results {
+    height: 30vh;
+    overflow: auto;
+}
+
+.album-search-results img {
+    max-height: 120px;
+}
+

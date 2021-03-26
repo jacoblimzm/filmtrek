@@ -5,16 +5,17 @@ import dotenv from "dotenv";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
-import SearchResults from "./SearchResults";
 import Nav from "./Nav";
 import LandingPage from "./LandingPage";
+import FilmItem from "./FilmItem";
 
 dotenv.config();
 
 function App() {
   const [spotifyToken, setSpotifyToken] = useState("");
-  const [popFilms, setPopFilms] = useState(filmsData);
-  const [searchFilms, setSearchFilms] = useState(albumsData);
+  const [popFilms, setPopFilms] = useState(filmsData.results);
+  const [searchFilms, setSearchFilms] = useState();
+  const [searchAlbums, setSearchAlbums] = useState(albumsData.albums.items);
 
   const getSpotifyToken = async () => {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -71,6 +72,10 @@ function App() {
     searchMovies(encodedSearch);
   };
 
+  const filmItems = popFilms.map((film) => {
+    return <FilmItem film={film} />;
+  });
+
   return (
     <Router>
       <div className="App">
@@ -82,50 +87,38 @@ function App() {
           <div className="row">
             <div className="col-md-6">
               <h1>FILMS</h1>
-              <div className="film-search-results row">
-                
-                <div className="film-item col-md-6 col-lg-4 mb-4">
-                  <img
-                    className="movie-img"
-                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[1].poster_path}`}
-                  />
-                </div>
-                <div className="film-item col-md-6 col-lg-4 mb-4">
-                  <img
-                    className="movie-img"
-                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[2].poster_path}`}
-                  />
-                </div>
-                <div className="film-item col-md-6 col-lg-4 mb-4">
-                  <img
-                    className="movie-img"
-                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[3].poster_path}`}
-                  />
-                </div>
-                <div className="film-item col-md-6 col-lg-4 mb-4">
-                  <img
-                    className="movie-img"
-                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[3].poster_path}`}
-                  />
-                </div>
-                <div className="film-item col-md-6 col-lg-4 mb-4">
-                  <img
-                    className="movie-img"
-                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[3].poster_path}`}
-                  />
-                </div>
-                <div className="film-item col-md-6 col-lg-4 mb-4">
-                  <img
-                    className="movie-img"
-                    src={`https://image.tmdb.org/t/p/w154${popFilms.results[3].poster_path}`}
-                  />
-                </div>
-              </div>
+              <div className="film-search-results row">{filmItems}</div>
             </div>
-            <div className="album-search-results col-md-6">
+            <div className="col-md-6">
               <div className="row">
                 <div className="col-12">
                   <h1>ALBUMS</h1>
+                  <div className="album-search-results row">
+                    <div className="album-item col-md-6 col-lg-4 py-4">
+                      <img src={searchAlbums[0].images[1].url} />
+                    </div>
+                    <div className="album-item col-md-6 col-lg-4 py-4">
+                      <img src={searchAlbums[0].images[1].url} />
+                    </div>
+                    <div className="album-item col-md-6 col-lg-4 py-4">
+                      <img src={searchAlbums[0].images[1].url} />
+                    </div>
+                    <div className="album-item col-md-6 col-lg-4 py-4">
+                      <img src={searchAlbums[0].images[1].url} />
+                    </div>
+                    <div className="album-item col-md-6 col-lg-4 py-4">
+                      <img src={searchAlbums[0].images[1].url} />
+                    </div>
+                    <div className="album-item col-md-6 col-lg-4 py-4">
+                      <img src={searchAlbums[0].images[1].url} />
+                    </div>
+                    <div className="album-item col-md-6 col-lg-4 py-4">
+                      <img src={searchAlbums[0].images[1].url} />
+                    </div>
+                    <div className="album-item col-md-6 col-lg-4 py-4">
+                      <img src={searchAlbums[0].images[1].url} />
+                    </div>
+                  </div>
                 </div>
                 <div className="col-12">
                   <p>
