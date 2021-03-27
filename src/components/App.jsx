@@ -3,7 +3,7 @@ import albumsData from "../spotifyAlbums.json";
 import axios from "axios";
 import dotenv from "dotenv";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, useParams, Route, Switch } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 import Nav from "./Nav";
 import LandingPage from "./LandingPage";
@@ -64,14 +64,14 @@ function App() {
 
   useEffect(() => {
     // ===== Execute Upon Pageload
-    // getSpotifyToken();
+    getSpotifyToken();
     // getPopularMovies();
   }, []);
 
   const handleUserSearch = (query) => {
-    const encodedSearch = encodeURI(query);
-    searchSpotifyAlbums(encodedSearch);
-    searchMovies(encodedSearch);
+    // const encodedSearch = encodeURI(query);
+    searchSpotifyAlbums(query);
+    searchMovies(query);
   };
 
   return (
@@ -86,7 +86,7 @@ function App() {
             />
           </Route>
 
-          <Route path="/results">
+          <Route path="/results/:userSearch">
             <ResultsPage films={popFilms} />
           </Route>
 

@@ -1,7 +1,12 @@
 import FilmItem from "./FilmItem"
+import {useParams} from "react-router-dom";
 
 const ResultsPage = ( {films} ) => {
 
+    const { userSearch } = useParams();
+
+    console.log(userSearch);
+    
     const filmItems = films.map((film) => {
         return <FilmItem film={film} />;
       });
