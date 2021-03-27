@@ -15,11 +15,14 @@ const SearchBar = ( {handleUserSearch} ) => {
 
       const handleSubmit = (e) => {
         const userSearch = e.target.searchInput.value;
-        // console.log(encodedSearch)
+        console.log(userSearch);
         handleUserSearch(userSearch);
         e.preventDefault();
       };
     
+      const handleClick = () => {    
+        handleUserSearch(inputSearch);
+      };
 
   return (
     <form className="d-flex" onSubmit={handleSubmit}>
@@ -32,7 +35,7 @@ const SearchBar = ( {handleUserSearch} ) => {
         placeholder="hello there!"
         aria-label="Search"
       />
-      <Link className="btn btn-outline-light ms-2" to={`/results/${inputSearch}`}>
+      <Link onClick={handleClick} className="btn btn-outline-light ms-2" to={`/results/${inputSearch}`}>
         Find
       </Link>
       {/* <button className="btn btn-outline-light" type="submit">
