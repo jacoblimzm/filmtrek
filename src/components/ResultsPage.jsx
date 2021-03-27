@@ -1,8 +1,9 @@
 import filmsData from "../popularFilmResults.json";
 import albumsData from "../spotifyAlbums.json";
-import axios from "axios"
+import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import FilmResults from "./FilmResults";
 import FilmItem from "./FilmItem";
 
 const ResultsPage = () => {
@@ -11,7 +12,7 @@ const ResultsPage = () => {
   console.log(encodedUserSearch);
 
   const [spotifyToken, setSpotifyToken] = useState("");
-  const [searchFilms, setSearchFilms] = useState();
+  const [searchFilms, setSearchFilms] = useState(filmsData.results);
   const [searchAlbums, setSearchAlbums] = useState(albumsData.albums.items);
 
   const getSpotifyToken = async () => {
@@ -48,26 +49,20 @@ const ResultsPage = () => {
     console.log(response.data.results);
   };
 
-  const filmItems = filmsData.results.map((film) => {
-    return <FilmItem film={film} />;
-  });
+
 
   useEffect(() => {
     getSpotifyToken();
 
     searchSpotifyAlbums(encodedUserSearch);
     searchMovies(encodedUserSearch);
-
   }, [encodedUserSearch]);
 
   return (
     <div className="results-page container-fluid ">
       <h1>RESULTS</h1>
       <div className="row">
-        <div className="col-md-6">
-          <h1>FILMS</h1>
-          <div className="film-search-results row">{filmItems}</div>
-        </div>
+        <FilmResults searchFilms={searchFilms} />
         <div className="col-md-6">
           <div className="row">
             <div className="col-12">
