@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-const Nav = ( {handleUserSearch} ) => {
+const Nav = ( {handleUserSearch, query} ) => {
+
+  const encodedQuery = encodeURI(query)
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container-fluid ">
@@ -30,7 +32,7 @@ const Nav = ( {handleUserSearch} ) => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/results" className="nav-link active">
+              <Link to={`/results/${encodedQuery}`} className="nav-link active">
                 results
               </Link>
             </li>
@@ -40,7 +42,7 @@ const Nav = ( {handleUserSearch} ) => {
               </Link>
             </li>
           </ul>
-          <SearchBar />
+          <SearchBar handleUserSearch={handleUserSearch} />
           {/* <form className="d-flex">
             <input
               className="form-control me-2 mx-2"

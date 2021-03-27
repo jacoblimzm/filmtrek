@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
 
 
 
-
-const FilmItem = ({ film }) => {
+const FilmItem = ({ poster_path }) => {
 
   return (
     <div className="film-item col-md-6 col-lg-4 pb-5">
+    <Link to="/details">
       <img
-        className="movie-search-img"
-        src={`https://image.tmdb.org/t/p/w154${film.poster_path}`}
+        className="movie-search-img img-fluid"
+        src={`https://image.tmdb.org/t/p/w342${poster_path}`}
       />
+      </Link>
     </div>
   );
 };

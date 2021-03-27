@@ -3,7 +3,7 @@ import FilmItem from "./FilmItem"
 const FilmResults = ( {searchFilms} ) => {
 
     const filmItems = searchFilms.map((film) => {
-        return <FilmItem film={film} />;
+        return <FilmItem {...film} key={film.id} />;
       });
 
 

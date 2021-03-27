@@ -13,18 +13,19 @@ const SearchBar = ( {handleUserSearch} ) => {
         setInputSearch(e.target.value);
       };
 
-    //   const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     const encodedSearch = encodeURI(e.target.search.value);
-    //     handleUserSearch(encodedSearch);
-    //   };
+      const handleSubmit = (e) => {
+        const userSearch = e.target.searchInput.value;
+        // console.log(encodedSearch)
+        handleUserSearch(userSearch);
+        e.preventDefault();
+      };
     
 
   return (
-    <form className="d-flex">
+    <form className="d-flex" onSubmit={handleSubmit}>
       <input
         className="form-control"
-        name="search"
+        name="searchInput"
         value={inputSearch}
         onChange={handleSearchChange}
         type="search"
