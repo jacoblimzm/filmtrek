@@ -47,6 +47,7 @@ const ResultsPage = () => {
 
     const response = await axios.get(url);
     console.log(response.data.results);
+    setSearchFilms(response.data.results)
   };
 
 
