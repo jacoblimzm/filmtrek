@@ -1,10 +1,11 @@
+import filmsData from "../popularFilmResults.json";
 import albumsData from "../spotifyAlbums.json";
 import axios from "axios"
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import FilmItem from "./FilmItem";
 
-const ResultsPage = ({ films }) => {
+const ResultsPage = () => {
   const { userSearch } = useParams();
   const encodedUserSearch = encodeURI(userSearch);
   console.log(encodedUserSearch);
@@ -47,7 +48,7 @@ const ResultsPage = ({ films }) => {
     console.log(response.data.results);
   };
 
-  const filmItems = films.map((film) => {
+  const filmItems = filmsData.results.map((film) => {
     return <FilmItem film={film} />;
   });
 
@@ -57,7 +58,7 @@ const ResultsPage = ({ films }) => {
     searchSpotifyAlbums(encodedUserSearch);
     searchMovies(encodedUserSearch);
 
-  }, []);
+  }, [encodedUserSearch]);
 
   return (
     <div className="results-page container-fluid ">

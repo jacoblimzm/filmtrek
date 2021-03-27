@@ -1,9 +1,8 @@
 import filmsData from "../popularFilmResults.json";
-import albumsData from "../spotifyAlbums.json";
 import axios from "axios";
 import dotenv from "dotenv";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, useParams, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 import Nav from "./Nav";
 import LandingPage from "./LandingPage";
@@ -16,7 +15,7 @@ dotenv.config();
 function App() {
   
   const [popFilms, setPopFilms] = useState(filmsData.results);
-  const [query, setQuery] = useState("")
+  // const [query, setQuery] = useState("")
 
   const getPopularMovies = async () => {
     const TMDBapi = process.env.REACT_APP_TMDB_API_KEY;
@@ -35,7 +34,7 @@ function App() {
     // getPopularMovies();
   }, []);
 
-  // const handleUserSearch = (UriEncodedQuery) => {
+  // const handleUserSearch = (UriEncodedQuery) => { // no longer required to lift state from Form as useParams through Link -> Route makes search accessible.
   //   // const encodedSearch = encodeURI(query);
   //   setQuery(UriEncodedQuery);
   // };
@@ -47,18 +46,21 @@ function App() {
         <Switch>
           <Route exact path="/">
             <LandingPage
-              
               popFilms={popFilms}
             />
           </Route>
 
           <Route path="/results/:userSearch">
-            <ResultsPage films={popFilms} query={query} />
+            <ResultsPage />
           </Route>
 
           <Route path="/details">
             <DetailsPage />
           </Route>
+
+          {/* <Route>
+            <ErrorPage />
+          </Route> */}
         </Switch>
       </div>
     </Router>
