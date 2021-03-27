@@ -40,7 +40,7 @@ const Nav = ( {handleUserSearch} ) => {
               </Link>
             </li>
           </ul>
-          <SearchBar handleUserSearch={handleUserSearch}/>
+          <SearchBar />
           {/* <form className="d-flex">
             <input
               className="form-control me-2 mx-2"
