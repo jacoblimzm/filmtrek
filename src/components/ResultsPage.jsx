@@ -6,7 +6,6 @@ const ResultsPage = ( {films} ) => {
     const { userSearch } = useParams();
 
     console.log(userSearch);
-    
     const filmItems = films.map((film) => {
         return <FilmItem film={film} />;
       });
@@ -58,17 +57,17 @@ const ResultsPage = ( {films} ) => {
                       <img src="https://i.scdn.co/image/ab67616d0000b273ac29a65e7ffcfa6f9cb0d342" />
                     </div>
                     <div className="col-sm-12 col-lg-9">
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
+                      <ul className="list-group list-group-flush">
+                        <li className="list-group-item">An item</li>
+                        <li className="list-group-item">A second item</li>
+                        <li className="list-group-item">A third item</li>
+                        <li className="list-group-item">A fourth item</li>
+                        <li className="list-group-item">And a fifth one</li>
+                        <li className="list-group-item">An item</li>
+                        <li className="list-group-item">A second item</li>
+                        <li className="list-group-item">A third item</li>
+                        <li className="list-group-item">A fourth item</li>
+                        <li className="list-group-item">And a fifth one</li>
                       </ul>
                     </div>
                   </div>

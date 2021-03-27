@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
-const Nav = () => {
+const Nav = ( {handleUserSearch} ) => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container-fluid ">
@@ -39,7 +40,8 @@ const Nav = () => {
               </Link>
             </li>
           </ul>
-          <form className="d-flex">
+          <SearchBar handleUserSearch={handleUserSearch}/>
+          {/* <form className="d-flex">
             <input
               className="form-control me-2 mx-2"
               type="search"
@@ -49,7 +51,7 @@ const Nav = () => {
             <button className="btn btn-outline-light" type="submit">
               Find
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
     </nav>

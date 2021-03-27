@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 
 
 const SearchBar = ( {handleUserSearch} ) => {
+
+    // const quotes = []
+
+
     const [inputSearch, setInputSearch] = useState("");
 
     const handleSearchChange = (e) => {
@@ -24,10 +28,10 @@ const SearchBar = ( {handleUserSearch} ) => {
         value={inputSearch}
         onChange={handleSearchChange}
         type="search"
-        placeholder="tell us your favourite film..."
+        placeholder="hello there!"
         aria-label="Search"
       />
-      <Link className="btn btn-outline-light" to={`/results/${inputSearch}`}>
+      <Link className="btn btn-outline-light ms-2" to={`/results/${inputSearch}`}>
         Find
       </Link>
       {/* <button className="btn btn-outline-light" type="submit">

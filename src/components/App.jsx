@@ -77,7 +77,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Nav handleUserSearch={handleUserSearch} />
         <Switch>
           <Route exact path="/">
             <LandingPage
