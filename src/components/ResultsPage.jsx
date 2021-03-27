@@ -6,7 +6,8 @@ import FilmItem from "./FilmItem";
 
 const ResultsPage = ({ films }) => {
   const { userSearch } = useParams();
-  console.log(encodeURI(userSearch));
+  const encodedUserSearch = encodeURI(userSearch);
+  console.log(encodedUserSearch);
 
   const [spotifyToken, setSpotifyToken] = useState("");
   const [searchFilms, setSearchFilms] = useState();
@@ -51,7 +52,10 @@ const ResultsPage = ({ films }) => {
   });
 
   useEffect(() => {
-    // getSpotifyToken();
+    getSpotifyToken();
+
+    searchSpotifyAlbums(encodedUserSearch);
+    searchMovies(encodedUserSearch);
 
   }, []);
 

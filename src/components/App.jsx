@@ -16,7 +16,7 @@ dotenv.config();
 function App() {
   
   const [popFilms, setPopFilms] = useState(filmsData.results);
-  // const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("")
 
   const getPopularMovies = async () => {
     const TMDBapi = process.env.REACT_APP_TMDB_API_KEY;
@@ -53,7 +53,7 @@ function App() {
           </Route>
 
           <Route path="/results/:userSearch">
-            <ResultsPage films={popFilms} />
+            <ResultsPage films={popFilms} query={query} />
           </Route>
 
           <Route path="/details">
