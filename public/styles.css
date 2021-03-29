@@ -100,7 +100,7 @@ body,
   }
 
   .film-meta {
-    padding: 1em 0.5em;
+    padding: 1em 1.5em;
     line-height: 1.5;
     color: white;
     background-color: #536162;
@@ -109,8 +109,7 @@ body,
   .film-meta-poster {
     float: left;
     width: 30%;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin: 1.5em;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
   }
 

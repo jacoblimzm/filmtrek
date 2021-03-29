@@ -45,10 +45,11 @@ const FilmDetails = () => {
                     className="film-meta-poster"
                     src={`https://image.tmdb.org/t/p/w1280${_.get(film, "poster_path", null)}`}
                   />
-                  <h2>{_.get(film, "tagline", null)}</h2>          
-                  <p>{_.get(film, "runtime", null)}</p>
+                  <h4>{_.get(film, "tagline", null)}</h4>          
+                  <p>Runtime: {_.get(film, "runtime", null)} mins</p>
                   <p>Rating: {_.get(film, "vote_average", null)}/10</p>
                   <p>{_.get(film, "overview", null)}</p>
+                  <a className="btn btn-primary" href={_.get(film, "homepage", null)}>Home Page</a>
                 </div>
               </div>
             </div>
