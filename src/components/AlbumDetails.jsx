@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 
 const AlbumDetails = () => {
   const { albumId } = useParams();
-  console.log(albumId);
 
-  const [spotifyToken, setSpotifyToken] = useState("");
+//   console.log(albumId);
   const [album, setAlbum] = useState({});
 
-  const getSpotifyToken = async () => {
+  const getAlbumDetails = async (query) => {
+    // call for the spotify Bearer token which is needed for the the API calls.
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const clientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
     const tokenEP = "https://accounts.spotify.com/api/token";
@@ -23,25 +23,23 @@ const AlbumDetails = () => {
       },
     });
     const token = tokenResponse.data.access_token;
-    console.log(token);
-    setSpotifyToken(token);
-  };
-
-  const searchAlbumDetails = async (query) => {
+    // console.log(token);
+    
+    // Call the API immediately and search for the album after the page loads. 
     const url = `https://api.spotify.com/v1/albums/${query}`;
     const response = await axios.get(url, {
       headers: {
-        Authorization: "Bearer " + spotifyToken,
+        Authorization: "Bearer " + token,
       },
     });
-    // console.log(response.data);
+    console.log(response.data);
     const albumObjResponse = response.data;
     setAlbum(albumObjResponse);
   };
 
+
   useEffect(() => {
-    getSpotifyToken();
-    searchAlbumDetails(albumId);
+    getAlbumDetails(albumId);
   }, [albumId]);
 
   const tracksArray = _.get(album, "tracks.items", []);

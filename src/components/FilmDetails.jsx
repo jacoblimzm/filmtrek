@@ -22,7 +22,7 @@ const FilmDetails = () => {
 
   useEffect( () => {
     searchMovieDetails(movieId)
-  })
+  }, [])
 
   const d = new Date(_.get(film, "release_date", null));
   const year = d.getFullYear();

@@ -4,7 +4,6 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import FilmResults from "./FilmResults";
-import FilmItem from "./FilmItem";
 import AlbumResults from "./AlbumResults"
 
 const ResultsPage = () => {
@@ -29,7 +28,7 @@ const ResultsPage = () => {
       },
     });
     const token = tokenResponse.data.access_token;
-    console.log(token);
+    // console.log(token);
     setSpotifyToken(token);
   };
 
@@ -40,7 +39,7 @@ const ResultsPage = () => {
         Authorization: "Bearer " + spotifyToken,
       },
     });
-    console.log(response.data.albums.items);
+    // console.log(response.data.albums.items);
     setSearchAlbums(response.data.albums.items)
   };
 
@@ -49,7 +48,7 @@ const ResultsPage = () => {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${TMDBapi}&language=en-US&query=${query}&page=1`;
 
     const response = await axios.get(url);
-    console.log(response.data.results);
+    // console.log(response.data.results);
     setSearchFilms(response.data.results)
   };
 
