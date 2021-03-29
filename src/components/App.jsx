@@ -23,10 +23,13 @@ const initialState = [];
 const watchlistReducer = (watchlistFilms, action) => {
   switch (action.type) {
     case ACTIONS.ADD_TO_WATCHLIST:
-      console.log(watchlistFilms)
-      return [...watchlistFilms, action.payload.film];
+      console.log(watchlistFilms);
+      if (!watchlistFilms.includes(action.payload.film)) {
+        return [...watchlistFilms, action.payload.film];  
+      }
+      return watchlistFilms;
     // case ACTIONS.REMOVE_FROM_WATCHLIST:
-    //   const filmIndex = state.indexOf(action.payload.filmObj);
+    //   const filmIndex = watchlistFilms.indexOf(action.payload.film);
     //   if (filmIndex === -1) {
     //     console.log("Adding..");
     //     tempFaves.push(filmObj);
