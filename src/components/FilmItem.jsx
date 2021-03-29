@@ -5,7 +5,7 @@ const FilmItem = ({ release_date, title, vote_average, poster_path, id}) => {
   const d = new Date(release_date);
   const year = d.getFullYear();
   return (
-    <div className="film-item hvr-grow-shadow col-md-6 col-lg-4 my-3">
+    <div className="film-item hvr-grow-shadow rounded col-md-6 col-lg-4 my-3 p-3">
       <Link to={`/filmdetails/${id}`}>
         <img
           className="movie-search-img img-fluid"
@@ -14,7 +14,7 @@ const FilmItem = ({ release_date, title, vote_average, poster_path, id}) => {
         />
       </Link>
       <p>{title} <span>({year})</span></p> 
-      <p class="film-item-rating">{vote_average} ★</p>
+      <p className="film-item-rating">{vote_average} ★</p>
     </div>
   );
 };

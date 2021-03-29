@@ -55,17 +55,20 @@ const AlbumDetails = () => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-md-12">
-          <h2>{_.get(album, "name")}</h2>
+        <div className="col my-3">
           <div className="row album-details">
             <div className="col-md-5">
               <img
                 className="img-fluid"
                 src={_.get(album, "images[0].url", null)}
               />
+              <h3>{_.get(album, "name")}</h3>
+              <h4>{_.get(album, "artists[0].name")}</h4>
+              <hr />
             </div>
             <div className="col-md-7">
-              <ul className="list-group list-group-flush">{tracks}</ul>
+            <h1>Track List</h1>
+              <ul className="list-group rounded list-group-flush">{tracks}</ul>
             </div>
           </div>
         </div>

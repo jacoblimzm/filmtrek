@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background: #136a8a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+scrollbar-color: inherit;
 }
 
 html,
@@ -48,6 +52,7 @@ body,
 /* FILM ITEM  */
 .film-item {
   /* box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.75); */
+  background: ivory;
 }
 
 .film-item-rating {
@@ -73,8 +78,13 @@ body,
 }
 
 /* ALBUM DETAILS */
+
+.album-details {
+  
+}
+
 .album-details img {
-    max-width: 40%;
+    max-width: 50%;
 }
 
 /* FILM DETAILS  */
@@ -113,6 +123,9 @@ body,
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
   }
 
+  .cast-details {
+    margin-top: 30px;
+  }
 
 /* ANIMATIONS */
 .hvr-grow-shadow {
