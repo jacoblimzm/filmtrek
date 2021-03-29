@@ -1,7 +1,9 @@
 import axios from "axios";
+import _ from "lodash";
+import Track from "./Track";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import _ from "lodash";
+
 
 const AlbumDetails = () => {
   const [spotifyToken, setSpotifyToken] = useState("");
@@ -42,39 +44,31 @@ const AlbumDetails = () => {
     searchAlbumDetails(albumId);
   }, [albumId]);
 
+  const tracksArray = _.get(album, "tracks.items", [])
+//   console.log(tracksArray)
+
+  const tracks = tracksArray.map( (trackObj, index) => {
+    return <Track {...trackObj} key={index} />;
+  });
+
+  // console.log(tracks);
+  // checking to make sure an array of React Components are returned in the Array.
+  
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-md-6">
-          <h2>Selected Album</h2>
+        <div className="col-md-12">
+          <h2>{_.get(album, "name")}</h2>
           <div className="row album-details">
-            <div className="col-12">
-              <h3>{_.get(album, "name")}</h3>
+            <div className="col-md-5">
               <img
                 className="img-fluid"
                 src={_.get(album, "images[0].url", null)}
               />
             </div>
-            <div className="col-12">
+            <div className="col-md-7">
               <ul className="list-group list-group-flush">
-                <li className="list-group-item">
-                  <a
-                    href={
-                        _.get(album, "tracks.items[0].external_urls.spotify", null)
-                    }
-                  >
-                    {_.get(album, "tracks.items[0].name", null)}
-                  </a>
-                </li>
-                <li className="list-group-item">A second item</li>
-                <li className="list-group-item">A third item</li>
-                <li className="list-group-item">A fourth item</li>
-                <li className="list-group-item">And a fifth one</li>
-                <li className="list-group-item">An item</li>
-                <li className="list-group-item">A second item</li>
-                <li className="list-group-item">A third item</li>
-                <li className="list-group-item">A fourth item</li>
-                <li className="list-group-item">And a fifth one</li>
+                {tracks}
               </ul>
             </div>
           </div>
