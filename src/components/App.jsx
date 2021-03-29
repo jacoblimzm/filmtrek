@@ -12,18 +12,19 @@ import WatchlistContext from "./context/WatchlistContext"
 
 dotenv.config();
 
-const ACTIONS = {
+export const ACTIONS = {
   ADD_TO_WATCHLIST: "add_to_watchlist",
   REMOVE_FROM_WATCHLIST: "remove_from_watchlist",
 };
 
 const initialState = [];
 // initial state for useReducer usually will be an object. so you will access it using "state." in the reducer function later on.
-// but here we can use an array as that is what is relevant, and what we need to store an array of film items.
+// but here we can use an array as that is what is relevant, and what we need to store is an array of film items.
 const watchlistReducer = (watchlistFilms, action) => {
-  switch (action) {
+  switch (action.type) {
     case ACTIONS.ADD_TO_WATCHLIST:
       console.log("clicked");
+      console.log(action.payload.command);
       return [...watchlistFilms, action.payload.filmObj];
     // case ACTIONS.REMOVE_FROM_WATCHLIST:
     //   const filmIndex = state.indexOf(action.payload.filmObj);
