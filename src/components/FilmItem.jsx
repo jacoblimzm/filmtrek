@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 
-const FilmItem = ({ poster_path, id, title}) => {
+const FilmItem = ({ release_date, title, vote_average, poster_path, id}) => {
+  
+  const d = new Date(release_date);
+  const year = d.getFullYear();
   return (
-    <div className="film-item col-md-6 col-lg-4 pb-5">
+    <div className="film-item hvr-grow-shadow col-md-6 col-lg-4 my-3">
       <Link to={`/filmdetails/${id}`}>
         <img
           className="movie-search-img img-fluid"
-          src={`https://image.tmdb.org/t/p/w342${poster_path}`}
+          src= {poster_path === null ? `https://everyfad.com/static/images/movie_poster_placeholder.29ca1c87.svg` : `https://image.tmdb.org/t/p/w342${poster_path}`}
           alt={title}
         />
       </Link>
+      <p>{title} <span>({year})</span></p> 
+      <p class="film-item-rating">{vote_average} ★</p>
     </div>
   );
 };

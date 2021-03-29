@@ -31,7 +31,7 @@ const FilmDetails = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <h2>DETAILS</h2>
+              
               <div className="film-detail">
                 <div className="film-backdrop">
                   <img
