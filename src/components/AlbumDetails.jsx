@@ -1,13 +1,14 @@
-import axios from "axios"
+import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import _ from "lodash";
 
 const AlbumDetails = () => {
-    const [spotifyToken, setSpotifyToken] = useState("");
+  const [spotifyToken, setSpotifyToken] = useState("");
+  const [album, setAlbum] = useState({});
 
-const { albumId } = useParams();
-  console.log(albumId)
+  const { albumId } = useParams();
+  console.log(albumId);
 
   const getSpotifyToken = async () => {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -32,46 +33,55 @@ const { albumId } = useParams();
         Authorization: "Bearer " + spotifyToken,
       },
     });
-    console.log(response.data.albums.items);
+    console.log(response.data);
+    setAlbum(response.data);
   };
 
-  useEffect( () => {
-    // getSpotifyToken();
-    // searchAlbumDetails(albumId);
-  })
+  useEffect(() => {
+    getSpotifyToken();
+    searchAlbumDetails(albumId);
+  }, [albumId]);
 
-    return (
-        <div className="container-fluid">
-        <div className="row">
-            <div className="col-md-6">
-              <h2>Selected Album</h2>
-              <div className="row album-details">
-                <div className="col-12">
-                  <img
-                    className="img-fluid"
-                    src="https://i.scdn.co/image/ab67616d0000b273ac29a65e7ffcfa6f9cb0d342"
-                  />
-                </div>
-                <div className="col-12">
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">An item</li>
-                    <li className="list-group-item">A second item</li>
-                    <li className="list-group-item">A third item</li>
-                    <li className="list-group-item">A fourth item</li>
-                    <li className="list-group-item">And a fifth one</li>
-                    <li className="list-group-item">An item</li>
-                    <li className="list-group-item">A second item</li>
-                    <li className="list-group-item">A third item</li>
-                    <li className="list-group-item">A fourth item</li>
-                    <li className="list-group-item">And a fifth one</li>
-                  </ul>
-                </div>
-              </div>
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-6">
+          <h2>Selected Album</h2>
+          <div className="row album-details">
+            <div className="col-12">
+              <h3>{_.get(album, "name")}</h3>
+              <img
+                className="img-fluid"
+                src={_.get(album, "images[0].url", null)}
+              />
             </div>
+            <div className="col-12">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">
+                  <a
+                    href={
+                        _.get(album, "tracks.items[0].external_urls.spotify", null)
+                    }
+                  >
+                    {_.get(album, "tracks.items[0].name", null)}
+                  </a>
+                </li>
+                <li className="list-group-item">A second item</li>
+                <li className="list-group-item">A third item</li>
+                <li className="list-group-item">A fourth item</li>
+                <li className="list-group-item">And a fifth one</li>
+                <li className="list-group-item">An item</li>
+                <li className="list-group-item">A second item</li>
+                <li className="list-group-item">A third item</li>
+                <li className="list-group-item">A fourth item</li>
+                <li className="list-group-item">And a fifth one</li>
+              </ul>
+            </div>
+          </div>
         </div>
-            
-        </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default AlbumDetails
+export default AlbumDetails;

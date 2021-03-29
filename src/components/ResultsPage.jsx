@@ -58,8 +58,8 @@ const ResultsPage = () => {
 
     searchSpotifyAlbums(encodedUserSearch);
     searchMovies(encodedUserSearch);
-  }, [encodedUserSearch]);
-
+  }, [encodedUserSearch]); 
+  // encodedUserSearch is in the dependency array because we want the results page to re-render whenever the user enters a new search result.
   
 
   return (
