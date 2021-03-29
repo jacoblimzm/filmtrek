@@ -2,12 +2,10 @@ import { Link } from "react-router-dom";
 
 
 
-const FilmItem = ({ release_date, title, vote_average, poster_path, id, addToWatchlist}) => {
+const FilmItem = ({ release_date, title, vote_average, poster_path, id, addToWatchlist, removeFromWatchlist}) => {
   
 
-  const handleClick = () => {
-    addToWatchlist();
-  }
+
 
   const d = new Date(release_date);
   const year = d.getFullYear();
@@ -22,7 +20,8 @@ const FilmItem = ({ release_date, title, vote_average, poster_path, id, addToWat
       </Link>
       <p>{title} <span>({year})</span></p> 
       <p className="film-item-rating">{vote_average} ★</p>
-      <button type="button" className="btn btn-sm btn-outline-success" onClick={handleClick}>Add to Watchlist</button>
+      <button type="button" className="btn btn-sm btn-outline-success" onClick={() => addToWatchlist()}>Add to Watchlist</button>
+      <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => removeFromWatchlist()}>Remove from Watchlist</button>
     </div>
   );
 };

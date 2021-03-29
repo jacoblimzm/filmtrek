@@ -25,18 +25,20 @@ const watchlistReducer = (watchlistFilms, action) => {
     case ACTIONS.ADD_TO_WATCHLIST:
       console.log(watchlistFilms);
       if (!watchlistFilms.includes(action.payload.film)) {
+        console.log("adding...")
         return [...watchlistFilms, action.payload.film];  
       }
       return watchlistFilms;
-    // case ACTIONS.REMOVE_FROM_WATCHLIST:
-    //   const filmIndex = watchlistFilms.indexOf(action.payload.film);
-    //   if (filmIndex === -1) {
-    //     console.log("Adding..");
-    //     tempFaves.push(filmObj);
-    //   } else {
-    //     console.log("Removing..");
-    //     tempFaves.splice(filmIndex, 1); // removes the film from the index which was found using indexOf.
-    //   }
+    case ACTIONS.REMOVE_FROM_WATCHLIST:
+      const filmIndex = watchlistFilms.indexOf(action.payload.film);
+      console.log(filmIndex);
+      if (filmIndex === -1) { // indexOf returns -1 if the particular item is not found
+        return watchlistFilms;
+      } else {
+        const tempArray = [...watchlistFilms].slice(); //make a shallow copy of the previous state.
+        tempArray.splice(filmIndex, 1); // remove 1 film from the index of the array, which was found using indexOf. 
+        return tempArray; 
+      }
     default:
     return watchlistFilms
   }

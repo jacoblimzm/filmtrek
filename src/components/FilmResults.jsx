@@ -10,8 +10,11 @@ const FilmResults = ( {searchFilms} ) => {
         watchlistContext.watchlistDispatch( {type: ACTIONS.ADD_TO_WATCHLIST, payload: {film: filmObj}})
     }
 
+    const removeFromWatchlist = (filmObj) => {
+        watchlistContext.watchlistDispatch( {type: ACTIONS.REMOVE_FROM_WATCHLIST, payload: {film: filmObj}})
+    }
     const filmItems = searchFilms.map((film) => {
-        return <FilmItem {...film} key={film.id} id={film.id} addToWatchlist={() => addToWatchlist(film)}/>;
+        return <FilmItem {...film} key={film.id} id={film.id} addToWatchlist={() => addToWatchlist(film)} removeFromWatchlist={()=>removeFromWatchlist(film)} />;
       });
 
   return (
