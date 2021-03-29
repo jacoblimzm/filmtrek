@@ -3,9 +3,8 @@ import FilmItem from "./FilmItem"
 const FilmResults = ( {searchFilms} ) => {
 
     const filmItems = searchFilms.map((film) => {
-        return <FilmItem {...film} key={film.id} />;
+        return <FilmItem {...film} key={film.id} id={film.id} />;
       });
-
 
   return (
     <div className="col-md-6">

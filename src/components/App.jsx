@@ -38,7 +38,7 @@ function App() {
     // very weird, but note that URI encoded strings cannot be accepted as input, and the state does not update if encoded from handleSubmit in SearchBar. only string seems to work.
     // when the query is passed to the nav as props, then encode it there.
     // const encodedSearch = encodeURI(query);
-    console.log(userQuery);
+    // console.log(userQuery);
     setQuery(userQuery);
   };
 
@@ -59,7 +59,7 @@ function App() {
             <ResultsPage />
           </Route>
 
-          <Route path="/details">
+          <Route path="/details/:movieId">
             <DetailsPage />
           </Route>
 

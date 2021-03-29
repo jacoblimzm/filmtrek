@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 const SearchBar = ( {handleUserSearch} ) => {
 
     // const quotes = []
-
-
+    // the
     const [inputSearch, setInputSearch] = useState("");
 
     const handleSearchChange = (e) => {
@@ -15,9 +14,11 @@ const SearchBar = ( {handleUserSearch} ) => {
 
       const handleSubmit = (e) => {
         const userSearch = e.target.searchInput.value;
-        console.log(userSearch);
+        // console.log(userSearch);
         handleUserSearch(userSearch);
         e.preventDefault();
+        // onSubmit does not work with <a> tags (which is what <Link> resolves to), it will not be triggered by <a> tags. Only triggered by <button> and pressing Enter on keyboard.
+        // this is why the handleUserSearch cannot lift the information up, because <Link> does not trigger handleSubmit.
       };
     
       const handleClick = () => {    

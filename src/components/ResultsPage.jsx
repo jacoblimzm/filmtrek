@@ -50,8 +50,6 @@ const ResultsPage = () => {
     setSearchFilms(response.data.results)
   };
 
-
-
   useEffect(() => {
     // getSpotifyToken();
 

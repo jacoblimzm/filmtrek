@@ -22,8 +22,7 @@ body,
     
 }
 
-
-
+/* SEARCH RESULTS */
 
 
 .film-search-results {
@@ -39,6 +38,15 @@ body,
 .album-search-results img {
     max-height: 120px;
 }
+
+
+/* FILM SEARCH RESULTS */
+.movie-search-img:hover {
+  cursor: pointer;
+}
+
+/* ALBUM SEARCH RESULTS */
+
 
 .selected-album {
     height: 40vh;
