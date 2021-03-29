@@ -4,13 +4,12 @@ import Track from "./Track";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-
 const AlbumDetails = () => {
-  const [spotifyToken, setSpotifyToken] = useState("");
-  const [album, setAlbum] = useState({});
-
   const { albumId } = useParams();
   console.log(albumId);
+
+  const [spotifyToken, setSpotifyToken] = useState("");
+  const [album, setAlbum] = useState({});
 
   const getSpotifyToken = async () => {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -35,8 +34,9 @@ const AlbumDetails = () => {
         Authorization: "Bearer " + spotifyToken,
       },
     });
-    console.log(response.data);
-    setAlbum(response.data);
+    // console.log(response.data);
+    const albumObjResponse = response.data;
+    setAlbum(albumObjResponse);
   };
 
   useEffect(() => {
@@ -44,16 +44,16 @@ const AlbumDetails = () => {
     searchAlbumDetails(albumId);
   }, [albumId]);
 
-  const tracksArray = _.get(album, "tracks.items", [])
-//   console.log(tracksArray)
+  const tracksArray = _.get(album, "tracks.items", []);
+  //   console.log(tracksArray)
 
-  const tracks = tracksArray.map( (trackObj, index) => {
+  const tracks = tracksArray.map((trackObj, index) => {
     return <Track {...trackObj} key={index} />;
   });
 
   // console.log(tracks);
   // checking to make sure an array of React Components are returned in the Array.
-  
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -67,9 +67,7 @@ const AlbumDetails = () => {
               />
             </div>
             <div className="col-md-7">
-              <ul className="list-group list-group-flush">
-                {tracks}
-              </ul>
+              <ul className="list-group list-group-flush">{tracks}</ul>
             </div>
           </div>
         </div>
