@@ -1,18 +1,14 @@
 import { Link } from "react-router-dom";
-import {useContext} from "react";
-import WatchlistContext from "./context/WatchlistContext"
-import {ACTIONS} from "./App"
 
 
 
-
-const FilmItem = ({ release_date, title, vote_average, poster_path, id}) => {
+const FilmItem = ({ release_date, title, vote_average, poster_path, id, addToWatchlist}) => {
   
-  const watchlistContext = useContext(WatchlistContext);
 
   const handleClick = () => {
-    watchlistContext.watchlistDispatch( {type: ACTIONS.ADD_TO_WATCHLIST, payload: {command: "hello"}} )
+    addToWatchlist();
   }
+
   const d = new Date(release_date);
   const year = d.getFullYear();
   return (

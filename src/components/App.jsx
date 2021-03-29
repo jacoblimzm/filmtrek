@@ -23,9 +23,8 @@ const initialState = [];
 const watchlistReducer = (watchlistFilms, action) => {
   switch (action.type) {
     case ACTIONS.ADD_TO_WATCHLIST:
-      console.log("clicked");
-      console.log(action.payload.command);
-      return [...watchlistFilms, action.payload.filmObj];
+      console.log(watchlistFilms)
+      return [...watchlistFilms, action.payload.film];
     // case ACTIONS.REMOVE_FROM_WATCHLIST:
     //   const filmIndex = state.indexOf(action.payload.filmObj);
     //   if (filmIndex === -1) {
