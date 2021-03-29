@@ -31,7 +31,7 @@ body,
 }
 
 .album-search-results {
-    height: 25vh;
+    height: 70vh;
     overflow: auto;
 }
 

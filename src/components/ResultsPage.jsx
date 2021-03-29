@@ -41,6 +41,7 @@ const ResultsPage = () => {
       },
     });
     console.log(response.data.albums.items);
+    setSearchAlbums(response.data.albums.items)
   };
 
   const searchMovies = async (query) => {
@@ -53,9 +54,9 @@ const ResultsPage = () => {
   };
 
   useEffect(() => {
-    // getSpotifyToken();
+    getSpotifyToken();
 
-    // searchSpotifyAlbums(encodedUserSearch);
+    searchSpotifyAlbums(encodedUserSearch);
     searchMovies(encodedUserSearch);
   }, [encodedUserSearch]);
 
