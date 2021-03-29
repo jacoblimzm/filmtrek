@@ -3,12 +3,11 @@ import axios from "axios";
 import dotenv from "dotenv";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import VideoPlayer from "./VideoPlayer";
 import Nav from "./Nav";
 import LandingPage from "./LandingPage";
-import FilmItem from "./FilmItem";
 import ResultsPage from "./ResultsPage";
-import DetailsPage from "./DetailsPage";
+import FilmDetails from "./FilmDetails";
+import AlbumDetails from "./AlbumDetails"
 
 dotenv.config();
 
@@ -35,7 +34,6 @@ function App() {
 
   
   const handleUserSearch = (userQuery) => { // required to lift the state of the user search input to update the search state at the top of the app.
-    // very weird, but note that URI encoded strings cannot be accepted as input, and the state does not update if encoded from handleSubmit in SearchBar. only string seems to work.
     // when the query is passed to the nav as props, then encode it there.
     // const encodedSearch = encodeURI(query);
     // console.log(userQuery);
@@ -59,10 +57,13 @@ function App() {
             <ResultsPage />
           </Route>
 
-          <Route path="/details/:movieId">
-            <DetailsPage />
+          <Route path="/filmdetails/:movieId">
+            <FilmDetails />
           </Route>
 
+          <Route path="/albumdetails/:albumId">
+            <AlbumDetails />
+          </Route>
           {/* <Route>
             <ErrorPage />
           </Route> */}

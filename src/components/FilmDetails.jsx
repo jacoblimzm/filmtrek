@@ -2,10 +2,10 @@ import axios from "axios"
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const DetailsPage = () => {
+const FilmDetails = () => {
 
   const { movieId } = useParams();
-  console.log(movieId)
+  console.log(movieId);
 
   const searchMovieDetails = async (query) => {
     const TMDBapi = process.env.REACT_APP_TMDB_API_KEY;
@@ -19,10 +19,13 @@ const DetailsPage = () => {
     searchMovieDetails(movieId)
   })
 
+  // const d = new Date(release_date);
+  // const year = d.getFullYear();
+  
     return (
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-12">
               <h2>DETAILS</h2>
               <div className="film-detail">
                 <div className="film-backdrop">
@@ -44,32 +47,6 @@ const DetailsPage = () => {
                 </div>
               </div>
             </div>
-
-            <div className="col-md-6">
-              <h2>Selected Album</h2>
-              <div className="row album-details">
-                <div className="col-12">
-                  <img
-                    className="img-fluid"
-                    src="https://i.scdn.co/image/ab67616d0000b273ac29a65e7ffcfa6f9cb0d342"
-                  />
-                </div>
-                <div className="col-12">
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">An item</li>
-                    <li className="list-group-item">A second item</li>
-                    <li className="list-group-item">A third item</li>
-                    <li className="list-group-item">A fourth item</li>
-                    <li className="list-group-item">And a fifth one</li>
-                    <li className="list-group-item">An item</li>
-                    <li className="list-group-item">A second item</li>
-                    <li className="list-group-item">A third item</li>
-                    <li className="list-group-item">A fourth item</li>
-                    <li className="list-group-item">And a fifth one</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       
@@ -77,4 +54,4 @@ const DetailsPage = () => {
 
 }
 
-export default DetailsPage
+export default FilmDetails
