@@ -1,10 +1,8 @@
 import { useState } from "react";
-import {Link} from "react-router-dom"
-import SearchBar from "./SearchBar"
+import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const LandingPage = ({ handleUserSearch, popFilms }) => {
-  
-
   const getRandomMovieBackdrop = () => {
     if (popFilms) {
       const randomMovieSelection = Math.floor(Math.random() * popFilms.length);
@@ -22,13 +20,17 @@ const LandingPage = ({ handleUserSearch, popFilms }) => {
     }
   };
 
-
   return (
-    <div className="landing-page d-flex align-content-center justify-content-center flex-wrap" style={getRandomMovieBackdrop()}>
+    <div
+      className="landing-page d-flex align-content-center justify-content-center flex-wrap"
+      style={getRandomMovieBackdrop()}
+    >
       <div className="form-container">
-        <h1>find your film.</h1>
-        <h1>find your soundtrack.</h1>
-        <SearchBar handleUserSearch={handleUserSearch} />
+        <div className="landing-page-text">
+          <h1>find your film.</h1>
+          <h1>find your soundtrack.</h1>
+          <SearchBar handleUserSearch={handleUserSearch} />
+        </div>
       </div>
     </div>
   );

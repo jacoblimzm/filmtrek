@@ -1,10 +1,17 @@
-const VideoModal = ({id}) => {
+const VideoModal = ({ id, showVideo, setShowVideo }) => {
+  // ${id}
+  const url = `https://www.youtube.com/embed/YF1eYbfbH5k`;
 
-  const url = `https://www.youtube.com/embed/${id}`
+  const handleCloseClick = () => {
+    setShowVideo(false);
+  };
+
   return (
     <div
       class="modal fade"
       id="videoModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
       tabindex="-1"
       aria-labelledby="videoModalLabel"
       aria-hidden="true"
@@ -12,21 +19,28 @@ const VideoModal = ({id}) => {
       <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
         <div class="modal-content">
           <div class="modal-body">
-            <div className="video">
-              <iframe
-                autoPlay="0"
-                title="Embedded Youtube Player"
-                id="ytplayer"
-                type="text/html"
-                width="640"
-                height="480"
-                src={url}
-                frameBorder="5"
-              ></iframe>
+            <div className="video embed-responsive embed-responsive-16by9">
+              {showVideo && (
+                <iframe
+                  autoPlay="0"
+                  title="Embedded Youtube Player"
+                  id="ytplayer"
+                  type="text/html"
+                  width="640"
+                  height="480"
+                  src={url}
+                  frameBorder="5"
+                ></iframe>
+              )}
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">
+            <button
+              type="button"
+              onClick={handleCloseClick}
+              class="btn btn-dark"
+              data-bs-dismiss="modal"
+            >
               Close
             </button>
           </div>

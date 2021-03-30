@@ -14,7 +14,8 @@ const FilmDetails = () => {
   console.log(movieId);
   const [film, setFilm] = useState({});
   const [cast, setCast] = useState({});
-  const [videoId, setVideoId] = useState("vLGI81mDYTg");
+  const [videoId, setVideoId] = useState("");
+  const [showVideo, setShowVideo] = useState(false);
 
   const searchMovieDetails = async (query) => {
     const TMDBapi = process.env.REACT_APP_TMDB_API_KEY;
@@ -23,7 +24,6 @@ const FilmDetails = () => {
     const response = await axios.get(url);
     const creditsResponse = await axios.get(creditsUrl);
     // console.log(response.data);
-
     const filmObjResponse = response.data;
     const castArray = creditsResponse.data;
     console.log(castArray)
@@ -32,13 +32,16 @@ const FilmDetails = () => {
   };
 
   const getYoutubeVideos =  async () => {
-    const ytApi = process.env.REACT_APP_YT_API_KEY;
-    const uriEncodedQuery = encodeURI(_.get(film, "title", null));
-    const url = `https://www.googleapis.com/youtube/v3/search?q=${uriEncodedQuery}%20trailer&part=snippet&type=video&key=${ytApi}&maxResults=5&videoEmbeddable=true`
-    const response = await axios.get(url);
-    const videoId = response.data.items[0].id.videoId;
-    setVideoId(videoId);
+    // const ytApi = process.env.REACT_APP_YT_API_KEY;
+    // const uriEncodedQuery = encodeURI(_.get(film, "title", null));
+    // const url = `https://www.googleapis.com/youtube/v3/search?q=${uriEncodedQuery}%20trailer&part=snippet&type=video&key=${ytApi}&maxResults=5&videoEmbeddable=true`
+    // const response = await axios.get(url);
+    // const videoId = response.data.items[0].id.videoId;
+    // setVideoId(videoId);
+    setShowVideo(true);
   }
+
+
 
   useEffect( () => {
     searchMovieDetails(movieId)
@@ -87,7 +90,7 @@ const FilmDetails = () => {
               </div>
             </div>
           </div>
-          <VideoModal id={videoId}/>
+          <VideoModal showVideo={showVideo} setShowVideo={setShowVideo} id={videoId}/>
         </div>
       
     )

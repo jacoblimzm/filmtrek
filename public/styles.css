@@ -13,7 +13,7 @@ body,
   overflow: auto;
 }
 
-
+/* LANDING PAGE */
 .landing-page {
   position: fixed;
   min-width: 100%;
@@ -22,9 +22,12 @@ body,
   background-position: center;
 }
 
-.form-container {
+.landing-page-text {
     text-align: left;
-    
+    color: white;
+    background-color: rgba(104,104,104, 0.5);
+    padding: 10px;
+    border-radius: 0.5em;
 }
 
 /* SEARCH RESULTS */

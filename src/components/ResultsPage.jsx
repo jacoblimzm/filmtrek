@@ -54,7 +54,6 @@ const ResultsPage = () => {
 
   useEffect(() => {
     getSpotifyToken();
-
     // searchSpotifyAlbums(encodedUserSearch);
     searchMovies(encodedUserSearch);
   }, [encodedUserSearch]); 
