@@ -1,21 +1,36 @@
-import FilmItem from "./FilmItem"
-import {useContext} from "react"
-import WatchlistContext from "./context/WatchlistContext"
-import {ACTIONS} from "./App"
+import FilmItem from "./FilmItem";
+import { useContext } from "react";
+import WatchlistContext from "./context/WatchlistContext";
+import { ACTIONS } from "./App";
 
-const FilmResults = ( {searchFilms} ) => {
+const FilmResults = ({ searchFilms }) => {
+  const watchlistContext = useContext(WatchlistContext);
 
-    const watchlistContext = useContext(WatchlistContext);
-    const addToWatchlist = (filmObj) => {
-        watchlistContext.watchlistDispatch( {type: ACTIONS.ADD_TO_WATCHLIST, payload: {film: filmObj}})
-    }
+  const addToWatchlist = (filmObj) => {
+    watchlistContext.watchlistDispatch({
+      type: ACTIONS.ADD_TO_WATCHLIST,
+      payload: { film: filmObj },
+    });
+  };
 
-    const removeFromWatchlist = (filmObj) => {
-        watchlistContext.watchlistDispatch( {type: ACTIONS.REMOVE_FROM_WATCHLIST, payload: {film: filmObj}})
-    }
-    const filmItems = searchFilms.map((film) => {
-        return <FilmItem {...film} key={film.id} id={film.id} addToWatchlist={() => addToWatchlist(film)} removeFromWatchlist={()=>removeFromWatchlist(film)} />;
-      });
+  const removeFromWatchlist = (filmObj) => {
+    watchlistContext.watchlistDispatch({
+      type: ACTIONS.REMOVE_FROM_WATCHLIST,
+      payload: { film: filmObj },
+    });
+  };
+  const filmItems = searchFilms.map((film) => {
+    return (
+      <FilmItem
+        {...film}
+        key={film.id}
+        id={film.id}
+        isOnWatchlist={watchlistContext.watchlistState.includes(film)}
+        addToWatchlist={() => addToWatchlist(film)}
+        removeFromWatchlist={() => removeFromWatchlist(film)}
+      />
+    );
+  });
 
   return (
     <div className="col-md-6">
@@ -25,5 +40,4 @@ const FilmResults = ( {searchFilms} ) => {
   );
 };
 
-
-export default FilmResults
+export default FilmResults;

@@ -30,9 +30,9 @@ const watchlistReducer = (watchlistFilms, action) => {
       }
       return watchlistFilms;
     case ACTIONS.REMOVE_FROM_WATCHLIST:
-      const filmIndex = watchlistFilms.indexOf(action.payload.film);
-      console.log(filmIndex);
-      if (filmIndex === -1) { // indexOf returns -1 if the particular item is not found
+      const filmIndex = watchlistFilms.indexOf(action.payload.film); // a method to check if the element is already in the array.
+      // if exists, returns the index of the element in the array. if not, returns -1
+      if (filmIndex === -1) { // indexOf returns -1 if the particular element is not found
         return watchlistFilms;
       } else {
         const tempArray = [...watchlistFilms].slice(); //make a shallow copy of the previous state.
@@ -95,6 +95,10 @@ function App() {
           <Route path="/albumdetails/:albumId">
             <AlbumDetails />
           </Route>
+
+          {/* <Route path="/watchlist">
+            <Watchlist />
+          </Route> */}
           {/* <Route>
             <ErrorPage />
           </Route> */}
