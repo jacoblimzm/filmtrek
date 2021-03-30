@@ -31,8 +31,35 @@ const FilmItem = ({
     </button>
   );
   return (
-    <div className="film-item hvr-grow-shadow rounded col-md-6 col-lg-4 my-3 p-3">
-      <Link to={`/filmdetails/${id}`}>
+    <div className="film-item hvr-grow-shadow rounded col-md-6 col-lg-4 my-2">
+      <div className="card">
+        <Link to={`/filmdetails/${id}`}>
+          <img
+            className="movie-search-img img-fluid"
+            src={
+              poster_path === null
+                ? `https://everyfad.com/static/images/movie_poster_placeholder.29ca1c87.svg`
+                : `https://image.tmdb.org/t/p/w342${poster_path}`
+            }
+            alt={title}
+          />
+        </Link>
+        <div className="card-body">
+          <p className="card-title">
+            {title} <span>({year})</span>
+          </p>
+          <p className="card-text film-item-rating">{vote_average} ★</p>
+          {watchlistButton}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FilmItem;
+
+{
+  /* <Link to={`/filmdetails/${id}`}>
         <img
           className="movie-search-img img-fluid"
           src={
@@ -47,9 +74,5 @@ const FilmItem = ({
         {title} <span>({year})</span>
       </p>
       <p className="film-item-rating">{vote_average} ★</p>
-      {watchlistButton}
-    </div>
-  );
-};
-
-export default FilmItem;
+      {watchlistButton} */
+}
