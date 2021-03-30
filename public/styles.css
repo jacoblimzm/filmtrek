@@ -1,9 +1,19 @@
 .App {
   text-align: center;
-  background: #136a8a;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-scrollbar-color: inherit;
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #0f2027,
+    #203a43,
+    #2c5364
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #0f2027,
+    #203a43,
+    #2c5364
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  scrollbar-color: inherit;
 }
 
 html,
@@ -11,6 +21,11 @@ body,
 #root {
   height: 100%;
   overflow: auto;
+}
+
+h1 {
+  color: white;
+  font-family: 'Notable', sans-serif;
 }
 
 /* LANDING PAGE */
@@ -23,30 +38,27 @@ body,
 }
 
 .landing-page-text {
-    text-align: left;
-    color: white;
-    background-color: rgba(104,104,104, 0.5);
-    padding: 10px;
-    border-radius: 0.5em;
+  text-align: left;
+  background-color: rgba(104, 104, 104, 0.5);
+  padding: 10px;
+  border-radius: 0.5em;
 }
 
 /* SEARCH RESULTS */
 
 .film-search-results {
-    height: 70vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-
+  height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
-
 .album-search-results {
-    height: 70vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+  height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .album-search-results img {
-    max-height: 120px;
+  max-height: 120px;
 }
 
 .movie-search-img:hover {
@@ -68,82 +80,82 @@ body,
   /* box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.75); */
 }
 
-
 /* ALBUM SEARCH RESULTS */
 .selected-album {
-    height: 40vh;
-    overflow: auto;
+  height: 40vh;
+  overflow: auto;
 }
 
 .selected-album img {
-    max-height: 120px;
+  max-height: 120px;
 }
 
 /* ALBUM DETAILS */
 
 .album-details img {
-    max-width: 50%;
+  max-width: 50%;
 }
 
 /* FILM DETAILS  */
 .film-backdrop {
-    position: relative;
-    margin-bottom: 30px;
+  position: relative;
+  margin-bottom: 30px;
 }
 
 .film-backdrop > img {
-  -webkit-mask-image: -webkit-gradient(linear, left top, 
-  left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.5)));
-  
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0.5))
+  );
 }
 
 .box-shadow {
-  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
 }
 
 .film-title {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 0;
-    color: white;
-    font-size: 3em;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.5));
-    padding: 0.25em 1.5rem;
-  }
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  color: white;
+  font-size: 3em;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5));
+  padding: 0.25em 1.5rem;
+}
 
-  .film-detail {
-    text-align: left;
-  }
+.film-detail {
+  text-align: left;
+}
 
-  .film-meta {
-    padding: 1em 1.5em;
-    line-height: 1.5;
-    color: white;
-    background-color: #536162;
-  }
+.film-meta {
+  padding: 1em 1.5em;
+  line-height: 1.5;
+  color: white;
+  background-color: #536162;
+}
 
-  .film-meta-poster {
-    float: left;
-    width: 30%;
-    margin: 1.5em;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
-  }
+.film-meta-poster {
+  float: left;
+  width: 30%;
+  margin: 1.5em;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+}
 
-  .cast-details {
-    margin-top: 30px;
-  }
+.cast-details {
+  margin-top: 30px;
+}
 
-  
-
-  /* WATCHLIST */
-  .empty-text {
-   margin: 18% 0; 
-  }
-
+/* WATCHLIST */
+.empty-text {
+  margin: 18% 0;
+}
 
 /* ANIMATIONS */
 .hvr-grow-shadow {
@@ -157,7 +169,9 @@ body,
   -webkit-transition-property: box-shadow, transform;
   transition-property: box-shadow, transform;
 }
-.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+.hvr-grow-shadow:hover,
+.hvr-grow-shadow:focus,
+.hvr-grow-shadow:active {
   /* box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5); */
   -webkit-transform: scale(1.1);
   transform: scale(1.1);

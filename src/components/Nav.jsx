@@ -8,7 +8,7 @@ const Nav = ( {handleUserSearch, query} ) => {
     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
       <div className="container-fluid ">
         <Link to="/" className="navbar-brand">
-          filmtrek
+          <h1>filmtrek</h1>
         </Link>
         <button
           className="navbar-toggler"

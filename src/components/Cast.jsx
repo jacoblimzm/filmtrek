@@ -13,7 +13,7 @@ const Cast = ({ name, profile_path, character }) => {
           alt={name}
         />
         <div class="card-body p-2">
-          <h6 class="card-title">{name}</h6>
+          <p class="card-title">{name}</p>
           <p class="card-text">{character}</p>
         </div>
       </div>

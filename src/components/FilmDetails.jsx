@@ -84,7 +84,7 @@ const FilmDetails = () => {
                   </button>
                 </div>
                 <div className="cast-details row">
-                  <h2>Cast</h2>
+                  <h1>Cast</h1>
                   {castComponentList}
                 </div>
               </div>
