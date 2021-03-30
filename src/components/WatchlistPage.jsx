@@ -2,8 +2,9 @@ import FilmItem from "./FilmItem";
 import { useContext } from "react";
 import WatchlistContext from "./context/WatchlistContext";
 import { ACTIONS } from "./App";
+import _ from "lodash";
 
-const Watchlist = () => {
+const WatchlistPage = () => {
   const watchlistContext = useContext(WatchlistContext);
 
   const addToWatchlist = (filmObj) => {
@@ -36,9 +37,12 @@ const Watchlist = () => {
   return (
     <div className="container-fluid">
     <h1>Watchlist</h1>
+    <hr />
       <div className="row">
-        {watchlistItems}
+        {watchlistItems.length === 0 ? <h3 className="empty-text">Your watchlist is empty!</h3> : watchlistItems}
       </div>
     </div>
   );
 };
+
+export default WatchlistPage;

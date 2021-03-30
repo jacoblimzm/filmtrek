@@ -37,6 +37,11 @@ const Nav = ( {handleUserSearch, query} ) => {
               </Link>
             </li>
             <li className="nav-item">
+              <Link to={`/watchlist`} className="nav-link active">
+                watchlist
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link to="/filmdetails/:filmid" className="nav-link active" tabIndex="-1">
                 film
               </Link>

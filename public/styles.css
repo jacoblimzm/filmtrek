@@ -13,6 +13,7 @@ body,
   overflow: auto;
 }
 
+
 .landing-page {
   position: fixed;
   min-width: 100%;
@@ -66,8 +67,6 @@ body,
 
 
 /* ALBUM SEARCH RESULTS */
-
-
 .selected-album {
     height: 40vh;
     overflow: auto;
@@ -78,7 +77,6 @@ body,
 }
 
 /* ALBUM DETAILS */
-
 .album-details {
   
 }
@@ -126,6 +124,12 @@ body,
   .cast-details {
     margin-top: 30px;
   }
+
+  /* WATCHLIST */
+  .empty-text {
+   margin: 18% 0; 
+  }
+
 
 /* ANIMATIONS */
 .hvr-grow-shadow {

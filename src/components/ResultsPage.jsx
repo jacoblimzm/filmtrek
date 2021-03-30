@@ -64,6 +64,7 @@ const ResultsPage = () => {
   return (
     <div className="results-page container-fluid ">
       <h1>RESULTS</h1>
+      <hr />
       <div className="row">
         <FilmResults searchFilms={searchFilms} />
         <AlbumResults searchAlbums={searchAlbums} />

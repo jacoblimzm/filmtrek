@@ -8,6 +8,7 @@ import LandingPage from "./LandingPage";
 import ResultsPage from "./ResultsPage";
 import FilmDetails from "./FilmDetails";
 import AlbumDetails from "./AlbumDetails";
+import WatchlistPage from "./WatchlistPage"
 import WatchlistContext from "./context/WatchlistContext"
 
 dotenv.config();
@@ -22,7 +23,7 @@ const initialState = [];
 // but here we can use an array as that is what is relevant, and what we need to store is an array of film items.
 const watchlistReducer = (watchlistFilms, action) => {
   switch (action.type) {
-    case ACTIONS.ADD_TO_WATCHLIST:
+    case ACTIONS.ADD_TO_WATCHLIST: //take note that this results in extra cognitive load as the adding and removing is not in reference to the same thing now!
       console.log(watchlistFilms);
       if (!watchlistFilms.includes(action.payload.film)) {
         console.log("adding...")
@@ -96,9 +97,9 @@ function App() {
             <AlbumDetails />
           </Route>
 
-          {/* <Route path="/watchlist">
-            <Watchlist />
-          </Route> */}
+          <Route path="/watchlist">
+            <WatchlistPage />
+          </Route>
           {/* <Route>
             <ErrorPage />
           </Route> */}

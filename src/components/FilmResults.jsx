@@ -2,6 +2,7 @@ import FilmItem from "./FilmItem";
 import { useContext } from "react";
 import WatchlistContext from "./context/WatchlistContext";
 import { ACTIONS } from "./App";
+import _ from "lodash";
 
 const FilmResults = ({ searchFilms }) => {
   const watchlistContext = useContext(WatchlistContext);
@@ -19,15 +20,24 @@ const FilmResults = ({ searchFilms }) => {
       payload: { film: filmObj },
     });
   };
+
+  const compareWatchlist = (filmObj) => {
+    for (const watchlistFilm of watchlistContext.watchlistState) {
+      if (watchlistFilm.id === filmObj.id) return watchlistFilm;
+    }
+    return null;
+  };
+
   const filmItems = searchFilms.map((film) => {
+    const filmInWatchlist = compareWatchlist(film);
     return (
       <FilmItem
         {...film}
         key={film.id}
         id={film.id}
-        isOnWatchlist={watchlistContext.watchlistState.includes(film)}
+        isOnWatchlist={filmInWatchlist !== null}
         addToWatchlist={() => addToWatchlist(film)}
-        removeFromWatchlist={() => removeFromWatchlist(film)}
+        removeFromWatchlist={() => removeFromWatchlist(filmInWatchlist)}
       />
     );
   });
