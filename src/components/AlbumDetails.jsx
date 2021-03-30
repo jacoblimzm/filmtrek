@@ -53,11 +53,11 @@ const AlbumDetails = () => {
   // checking to make sure an array of React Components are returned in the Array.
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid min-vh-100">
       <div className="row">
         <div className="col my-3">
-          <div className="row album-details">
-            <div className="col-md-5">
+          <div className="row">
+            <div className="col-md-5 album-details">
               <img
                 className="img-fluid"
                 src={_.get(album, "images[0].url", null)}
@@ -66,8 +66,9 @@ const AlbumDetails = () => {
               <h4>{_.get(album, "artists[0].name")}</h4>
               <hr />
             </div>
-            <div className="col-md-7">
+            <div className="col-md-7 tracks-container">
             <h1>Track List</h1>
+            <hr />
               <ul className="list-group rounded list-group-flush">{tracks}</ul>
             </div>
           </div>

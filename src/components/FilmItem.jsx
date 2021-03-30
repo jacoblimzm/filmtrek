@@ -31,11 +31,11 @@ const FilmItem = ({
     </button>
   );
   return (
-    <div className="film-item hvr-grow-shadow rounded col-md-6 col-lg-4 my-2">
-      <div className="card">
+    <div className="film-item hvr-grow-shadow rounded col-sm-6 col-md-6 col-lg-4 my-3">
+      <div className="card box-shadow">
         <Link to={`/filmdetails/${id}`}>
           <img
-            className="movie-search-img img-fluid"
+            className="movie-search-img img-fluid card-img-top"
             src={
               poster_path === null
                 ? `https://everyfad.com/static/images/movie_poster_placeholder.29ca1c87.svg`
@@ -44,8 +44,8 @@ const FilmItem = ({
             alt={title}
           />
         </Link>
-        <div className="card-body">
-          <p className="card-title">
+        <div className="card-body py-2">
+          <p className="card-title m-0">
             {title} <span>({year})</span>
           </p>
           <p className="card-text film-item-rating">{vote_average} ★</p>

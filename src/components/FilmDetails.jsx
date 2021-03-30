@@ -62,14 +62,14 @@ const FilmDetails = () => {
             <div className="col-md-12">
               
               <div className="film-detail my-3">
-                <div className="film-backdrop">
+                <div className="film-backdrop box-shadow">
                   <img
                     className="img-fluid"
                     src={`https://image.tmdb.org/t/p/w1280${_.get(film, "backdrop_path", null)}`}
                   />
                   <h1 className="film-title">{_.get(film, "title", null)} ({year})</h1>
                 </div>
-                <div className="film-meta">
+                <div className="film-meta box-shadow">
                   <img
                     className="film-meta-poster"
                     src={`https://image.tmdb.org/t/p/w1280${_.get(film, "poster_path", null)}`}
