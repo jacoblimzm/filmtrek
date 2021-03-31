@@ -31,12 +31,12 @@ const FilmDetails = () => {
   };
 
   const getYoutubeVideos =  async () => {
-    // const ytApi = process.env.REACT_APP_YT_API_KEY;
-    // const uriEncodedQuery = encodeURI(_.get(film, "title", null));
-    // const url = `https://www.googleapis.com/youtube/v3/search?q=${uriEncodedQuery}%20trailer&part=snippet&type=video&key=${ytApi}&maxResults=5&videoEmbeddable=true`
-    // const response = await axios.get(url);
-    // const videoId = response.data.items[0].id.videoId;
-    // setVideoId(videoId);
+    const ytApi = process.env.REACT_APP_YT_API_KEY;
+    const uriEncodedQuery = encodeURI(_.get(film, "title", null));
+    const url = `https://www.googleapis.com/youtube/v3/search?q=${uriEncodedQuery}%20trailer&part=snippet&type=video&key=${ytApi}&maxResults=5&videoEmbeddable=true`
+    const response = await axios.get(url);
+    const videoId = response.data.items[0].id.videoId;
+    setVideoId(videoId);
     setShowVideo(true);
   }
 

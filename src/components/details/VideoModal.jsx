@@ -1,6 +1,6 @@
 const VideoModal = ({ id, showVideo, setShowVideo }) => {
-  // ${id}
-  const url = `https://www.youtube.com/embed/YF1eYbfbH5k`;
+  
+  const url = `https://www.youtube.com/embed/${id}`;
 
   const handleCloseClick = () => {
     setShowVideo(false);
