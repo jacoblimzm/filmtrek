@@ -3,25 +3,10 @@ import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
 import WatchlistContext from "./context/WatchlistContext";
 import { ACTIONS } from "./reducers/watchlistReducer";
-import axios from "axios";
 
-const GenrePage = () => {
+const PopularPage = ({popFilms}) => {
 
     const watchlistContext = useContext(WatchlistContext);
-    const { genreId } = useParams();
-    console.log(genreId)
-    const [movies, setMovies] = useState([])
-
-    const getMoviesOfGenre = async () => {
-        const TMDBapi = process.env.REACT_APP_TMDB_API_KEY
-        const url = `https://api.themoviedb.org/3/movie/${genreId}/similar?api_key=${TMDBapi}&language=en-US&page=1`
-        const response = await axios.get(url);
-        setMovies(response.data.results);
-    }
-
-    useEffect ( () => {
-        getMoviesOfGenre();
-    }, [genreId]);
 
   const addToWatchlist = (filmObj) => {
     watchlistContext.watchlistDispatch({
@@ -43,7 +28,7 @@ const GenrePage = () => {
     });
   };
 
-  const filmItems = movies.map((film) => {
+  const filmItems = popFilms.map((film) => {
     return (
       <FilmItem
         {...film}
@@ -60,7 +45,7 @@ const GenrePage = () => {
 
   return (
     <div className="container-fluid px-5">
-      <h1>Genres</h1>
+      <h1>Popular</h1>
       <hr />
       <div className="row">
         {filmItems}
@@ -69,4 +54,4 @@ const GenrePage = () => {
   );
 };
 
-export default GenrePage;
+export default PopularPage;

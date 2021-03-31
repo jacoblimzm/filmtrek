@@ -1,9 +1,11 @@
 import {Link} from "react-router-dom"
 
-const GenreLink = () => {
+const GenreLink = ( {id, name}) => {
+
+    const url = `/genres/${id}`
   return (
-    <Link to="/genres/28" className="dropdown-item" >
-      Action
+    <Link to={url} className="dropdown-item" >
+      {name}
     </Link>
   );
 };

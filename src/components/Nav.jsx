@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import genres from "../genres.json";
 import SearchBar from "./SearchBar";
-import GenreLink from "./GenreLink"
+import GenreLink from "./GenreLink";
 
 const Nav = ({ handleUserSearch, query }) => {
   const encodedQuery = encodeURI(query);
@@ -41,7 +42,12 @@ const Nav = ({ handleUserSearch, query }) => {
                 watchlist
               </Link>
             </li>
-            <li className="nav-item dropdown">
+            <li className="nav-item">
+              <Link to={`/popular`} className="nav-link active">
+                popular
+              </Link>
+            </li>
+            <li className="nav-item dropdown active">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
@@ -52,23 +58,14 @@ const Nav = ({ handleUserSearch, query }) => {
               >
                 genres
               </a>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdown"
-              >
-                <li>
-                  <GenreLink />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                {genres.genres.map((genre) => {
+                  return (
+                    <li>
+                      <GenreLink {...genre} />
+                    </li>
+                  );
+                })}
               </ul>
             </li>
           </ul>

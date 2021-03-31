@@ -11,6 +11,7 @@ import FilmDetails from "./FilmDetails";
 import AlbumDetails from "./AlbumDetails";
 import WatchlistPage from "./WatchlistPage"
 import GenrePage from "./GenrePage"
+import PopularPage from "./PopularPage"
 import WatchlistContext from "./context/WatchlistContext"
 
 dotenv.config();
@@ -79,6 +80,11 @@ function App() {
           <Route path="/genres/:genreId">
             <GenrePage />
           </Route>
+
+          <Route path="/popular">
+            <PopularPage  popFilms={popFilms}/>
+          </Route>
+
           {/* <Route>
             <ErrorPage />
           </Route> */}
