@@ -20,27 +20,32 @@ const FilmResults = ({ searchFilms }) => {
   const removeFromWatchlist = (filmObj) => {
     watchlistContext.watchlistDispatch({
       type: ACTIONS.REMOVE_FROM_WATCHLIST,
-      payload: { film: filmObj },
+      payload: {
+        film: filmObj,
+        filmId: filmObj.id,
+      },
     });
   };
 
-  const compareWatchlist = (filmObj) => {
-    for (const watchlistFilm of watchlistContext.watchlistState) {
-      if (watchlistFilm.id === filmObj.id) return watchlistFilm;
-    }
-    return null;
-  };
+//   const compareWatchlist = (filmObj) => {
+//     for (const watchlistFilm of watchlistContext.watchlistState) {
+//       if (watchlistFilm.id === filmObj.id) return watchlistFilm;
+//     }
+//     return null;
+//   };
 
   const filmItems = searchFilms.map((film) => {
-    const filmInWatchlist = compareWatchlist(film);
+    // const filmInWatchlist = compareWatchlist(film);
     return (
       <FilmItem
         {...film}
         key={film.id}
         id={film.id}
-        isOnWatchlist={filmInWatchlist !== null}
+        isOnWatchlist={watchlistContext.watchlistState.some( watchlistFilm => {
+          return watchlistFilm.id === film.id
+        })}
         addToWatchlist={() => addToWatchlist(film)}
-        removeFromWatchlist={() => removeFromWatchlist(filmInWatchlist)}
+        removeFromWatchlist={() => removeFromWatchlist(film)}
       />
     );
   });
