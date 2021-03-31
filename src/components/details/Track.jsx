@@ -1,4 +1,3 @@
-import _ from "lodash";
 
 const Track = ( {name, external_urls} ) => {
   return (

@@ -2,7 +2,7 @@ import axios from "axios"
 import _ from "lodash";
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
-import WatchlistContext from "./context/WatchlistContext"
+import WatchlistContext from "../context/WatchlistContext"
 import Cast from "./Cast"
 import VideoModal from "./VideoModal"
 

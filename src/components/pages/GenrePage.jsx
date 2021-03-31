@@ -1,8 +1,8 @@
-import FilmItem from "./FilmItem";
+import FilmItem from "../results/FilmItem";
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
-import WatchlistContext from "./context/WatchlistContext";
-import { ACTIONS } from "./reducers/watchlistReducer";
+import WatchlistContext from "../context/WatchlistContext";
+import { ACTIONS } from "../reducers/watchlistReducer";
 import axios from "axios";
 
 const GenrePage = () => {

@@ -1,12 +1,10 @@
 import FilmItem from "./FilmItem";
-import { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
-import WatchlistContext from "./context/WatchlistContext";
-import { ACTIONS } from "./reducers/watchlistReducer";
+import { useContext } from "react";
+import WatchlistContext from "../context/WatchlistContext";
+import { ACTIONS } from "../reducers/watchlistReducer";
 
-const PopularPage = ({popFilms}) => {
-
-    const watchlistContext = useContext(WatchlistContext);
+const FilmResults = ({ searchFilms }) => {
+  const watchlistContext = useContext(WatchlistContext);
 
   const addToWatchlist = (filmObj) => {
     watchlistContext.watchlistDispatch({
@@ -28,7 +26,15 @@ const PopularPage = ({popFilms}) => {
     });
   };
 
-  const filmItems = popFilms.map((film) => {
+//   const compareWatchlist = (filmObj) => {
+//     for (const watchlistFilm of watchlistContext.watchlistState) {
+//       if (watchlistFilm.id === filmObj.id) return watchlistFilm;
+//     }
+//     return null;
+//   };
+
+  const filmItems = searchFilms.map((film) => {
+    // const filmInWatchlist = compareWatchlist(film);
     return (
       <FilmItem
         {...film}
@@ -44,14 +50,11 @@ const PopularPage = ({popFilms}) => {
   });
 
   return (
-    <div className="container-fluid px-5">
-      <h1>Popular</h1>
-      <hr />
-      <div className="row">
-        {filmItems}
-      </div>
+    <div className="col-md-6">
+      <h1>FILMS</h1>
+      <div className="film-search-results row">{filmItems}</div>
     </div>
   );
 };
 
-export default PopularPage;
+export default FilmResults;

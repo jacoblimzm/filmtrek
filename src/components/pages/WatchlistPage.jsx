@@ -1,7 +1,7 @@
-import FilmItem from "./FilmItem";
+import FilmItem from "../results/FilmItem";
 import { useContext } from "react";
-import WatchlistContext from "./context/WatchlistContext";
-import { ACTIONS } from "./reducers/watchlistReducer";
+import WatchlistContext from "../context/WatchlistContext";
+import { ACTIONS } from "../reducers/watchlistReducer";
 
 const WatchlistPage = () => {
   const watchlistContext = useContext(WatchlistContext);

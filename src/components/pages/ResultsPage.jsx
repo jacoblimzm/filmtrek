@@ -1,10 +1,9 @@
-import filmsData from "../popularFilmResults.json";
-import albumsData from "../spotifyAlbums.json";
+import albumsData from "../../spotifyAlbums.json";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import FilmResults from "./FilmResults";
-import AlbumResults from "./AlbumResults"
+import FilmResults from "../results/FilmResults";
+import AlbumResults from "../results/AlbumResults"
 
 const ResultsPage = () => {
   const { userSearch } = useParams();

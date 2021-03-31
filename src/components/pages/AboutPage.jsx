@@ -1,4 +1,4 @@
-import TMDBLogo from "../tmdblogo.svg";
+import TMDBLogo from "../../tmdblogo.svg";
 
 const AboutPage = () => {
 
@@ -20,7 +20,7 @@ const AboutPage = () => {
             filmtrek uses the TMDb API but is not endorsed or certified by TMDb.
           </p>
           <p>
-            <em>Album & Music Data:</em> All music-related metadata used
+            <em>Album & Music Data:</em> All music-related metadata used in
             filmtrek is supplied by{" "}
             <a href="https://www.spotify.com/us/home/">Spotify</a>
           </p>

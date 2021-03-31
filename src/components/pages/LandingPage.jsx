@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import SearchBar from "../navigation/SearchBar";
 
 const LandingPage = ({ handleUserSearch, popFilms }) => {
   const getRandomMovieBackdrop = () => {

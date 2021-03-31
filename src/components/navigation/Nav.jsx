@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import genres from "../genres.json";
+import genres from "../../genres.json";
 import SearchBar from "./SearchBar";
 import GenreLink from "./GenreLink";
 
 const Nav = ({ handleUserSearch, query }) => {
   const encodedQuery = encodeURI(query);
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid ">
         <Link to="/" className="navbar-brand">
           <h1>filmtrek</h1>
