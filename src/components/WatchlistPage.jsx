@@ -26,7 +26,6 @@ const WatchlistPage = () => {
     });
   };
 
-
   const watchlistItems = watchlistContext.watchlistState.map((film) => {
     return (
       <FilmItem

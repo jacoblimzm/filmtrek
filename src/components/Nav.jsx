@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import GenreLink from "./GenreLink"
 
 const Nav = ({ handleUserSearch, query }) => {
   const encodedQuery = encodeURI(query);
@@ -56,7 +57,7 @@ const Nav = ({ handleUserSearch, query }) => {
                 aria-labelledby="navbarDropdown"
               >
                 <li>
-                  
+                  <GenreLink />
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">

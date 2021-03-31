@@ -10,6 +10,7 @@ import ResultsPage from "./ResultsPage";
 import FilmDetails from "./FilmDetails";
 import AlbumDetails from "./AlbumDetails";
 import WatchlistPage from "./WatchlistPage"
+import GenrePage from "./GenrePage"
 import WatchlistContext from "./context/WatchlistContext"
 
 dotenv.config();
@@ -73,6 +74,10 @@ function App() {
 
           <Route path="/watchlist">
             <WatchlistPage />
+          </Route>
+
+          <Route path="/genres/:genreId">
+            <GenrePage />
           </Route>
           {/* <Route>
             <ErrorPage />
