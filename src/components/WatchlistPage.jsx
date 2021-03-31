@@ -10,7 +10,10 @@ const WatchlistPage = () => {
   const addToWatchlist = (filmObj) => {
     watchlistContext.watchlistDispatch({
       type: ACTIONS.ADD_TO_WATCHLIST,
-      payload: { film: filmObj },
+      payload: {
+        film: filmObj,
+        filmId: filmObj.id,
+      },
     });
   };
 
@@ -35,11 +38,15 @@ const WatchlistPage = () => {
   });
 
   return (
-    <div className="container-fluid">
-    <h1>Watchlist</h1>
-    <hr />
+    <div className="container-fluid px-5">
+      <h1>Watchlist</h1>
+      <hr />
       <div className="row">
-        {watchlistItems.length === 0 ? <h3 className="empty-text">Your watchlist is empty!</h3> : watchlistItems}
+        {watchlistItems.length === 0 ? (
+          <h3 className="empty-text">Your watchlist is empty!</h3>
+        ) : (
+          watchlistItems
+        )}
       </div>
     </div>
   );

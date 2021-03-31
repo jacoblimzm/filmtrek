@@ -99,8 +99,9 @@ h1 {
 
 /* ALBUM DETAILS */
 
-.album-details img {
+.album-details-container img {
   max-width: 50%;
+  color: white;
 }
 
 /* FILM DETAILS  */

@@ -57,7 +57,7 @@ const AlbumDetails = () => {
       <div className="row">
         <div className="col my-3">
           <div className="row">
-            <div className="col-md-5 album-details">
+            <div className="col-md-5 album-details-container">
               <img
                 className="img-fluid"
                 src={_.get(album, "images[0].url", null)}

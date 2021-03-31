@@ -25,7 +25,12 @@ const watchlistReducer = (watchlistFilms, action) => {
   switch (action.type) {
     case ACTIONS.ADD_TO_WATCHLIST: //take note that this results in extra cognitive load as the adding and removing is not in reference to the same thing now!
       console.log(watchlistFilms);
-      if (!watchlistFilms.includes(action.payload.film)) {
+      console.log(action.payload.filmId)
+      const present = watchlistFilms.some( watchlistFilm => {
+        return watchlistFilm.id === action.payload.filmId
+      })
+      console.log(present);
+      if (!present) {
         console.log("adding...")
         return [...watchlistFilms, action.payload.film];  
       }

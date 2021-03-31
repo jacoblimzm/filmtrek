@@ -42,7 +42,6 @@ const FilmDetails = () => {
   }
 
 
-
   useEffect( () => {
     searchMovieDetails(movieId)
   }, [movieId])

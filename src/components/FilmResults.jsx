@@ -10,7 +10,10 @@ const FilmResults = ({ searchFilms }) => {
   const addToWatchlist = (filmObj) => {
     watchlistContext.watchlistDispatch({
       type: ACTIONS.ADD_TO_WATCHLIST,
-      payload: { film: filmObj },
+      payload: {
+        film: filmObj,
+        filmId: filmObj.id,
+      },
     });
   };
 
