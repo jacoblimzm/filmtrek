@@ -25,7 +25,7 @@ const LandingPage = ({ handleUserSearch, popFilms }) => {
       className="landing-page d-flex align-content-center justify-content-center flex-wrap"
       style={getRandomMovieBackdrop()}
     >
-      <div className="form-container">
+      <div className="form-container mx-5">
         <div className="landing-page-text">
           <h1>find your film.</h1>
           <h1>find your soundtrack.</h1>
