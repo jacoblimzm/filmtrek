@@ -46,7 +46,7 @@ const FilmItem = ({
         </Link>
         <div className="card-body py-2">
           <p className="card-title m-0">
-            {title} <span>({year})</span>
+            {title} <span>({Number.isNaN(year) ? "Unavailable" : year})</span>
           </p>
           <p className="card-text film-item-rating">{vote_average} ★</p>
           {watchlistButton}

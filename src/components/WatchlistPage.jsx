@@ -2,7 +2,6 @@ import FilmItem from "./FilmItem";
 import { useContext } from "react";
 import WatchlistContext from "./context/WatchlistContext";
 import { ACTIONS } from "./reducers/watchlistReducer";
-import _ from "lodash";
 
 const WatchlistPage = () => {
   const watchlistContext = useContext(WatchlistContext);

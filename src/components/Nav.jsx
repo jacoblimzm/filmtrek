@@ -56,9 +56,7 @@ const Nav = ({ handleUserSearch, query }) => {
                 aria-labelledby="navbarDropdown"
               >
                 <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
+                  
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
