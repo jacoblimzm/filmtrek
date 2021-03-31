@@ -40,9 +40,9 @@ const Nav = ({ handleUserSearch, query }) => {
                 watchlist
               </Link>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -52,21 +52,21 @@ const Nav = ({ handleUserSearch, query }) => {
                 genres
               </a>
               <ul
-                class="dropdown-menu"
+                className="dropdown-menu"
                 aria-labelledby="navbarDropdown"
               >
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>

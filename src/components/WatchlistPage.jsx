@@ -20,9 +20,13 @@ const WatchlistPage = () => {
   const removeFromWatchlist = (filmObj) => {
     watchlistContext.watchlistDispatch({
       type: ACTIONS.REMOVE_FROM_WATCHLIST,
-      payload: { film: filmObj },
+      payload: {
+        film: filmObj,
+        filmId: filmObj.id,
+      },
     });
   };
+
 
   const watchlistItems = watchlistContext.watchlistState.map((film) => {
     return (
@@ -30,7 +34,9 @@ const WatchlistPage = () => {
         {...film}
         key={film.id}
         id={film.id}
-        isOnWatchlist={watchlistContext.watchlistState.includes(film)}
+        isOnWatchlist={watchlistContext.watchlistState.some( watchlistFilm => {
+          return watchlistFilm.id === film.id
+        })}
         addToWatchlist={() => addToWatchlist(film)}
         removeFromWatchlist={() => removeFromWatchlist(film)}
       />
