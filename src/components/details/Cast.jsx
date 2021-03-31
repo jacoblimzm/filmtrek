@@ -2,7 +2,7 @@ const Cast = ({ name, profile_path, character }) => {
   const url = `https://image.tmdb.org/t/p/w185${profile_path}`;
   return (
     <div className="col-xs-4 col-sm-4 col-md-3 my-1">
-      <div class="card cast-card box-shadow">
+      <div className="card cast-card box-shadow">
         <img
           className="img-fluid"
           src={
@@ -12,9 +12,9 @@ const Cast = ({ name, profile_path, character }) => {
           }
           alt={name}
         />
-        <div class="card-body p-2">
-          <p class="card-title">{name}</p>
-          <p class="card-text">{character}</p>
+        <div className="card-body p-2">
+          <p className="card-title">{name}</p>
+          <p className="card-text">{character}</p>
         </div>
       </div>
     </div>

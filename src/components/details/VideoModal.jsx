@@ -8,17 +8,17 @@ const VideoModal = ({ id, showVideo, setShowVideo }) => {
 
   return (
     <div
-      class="modal fade"
+      className="modal fade"
       id="videoModal"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="videoModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
-        <div class="modal-content">
-          <div class="modal-body">
+      <div className="modal-dialog modal-lg modal-fullscreen-lg-down">
+        <div className="modal-content">
+          <div className="modal-body">
             <div className="video embed-responsive embed-responsive-16by9">
               {showVideo && (
                 <iframe
@@ -34,11 +34,11 @@ const VideoModal = ({ id, showVideo, setShowVideo }) => {
               )}
             </div>
           </div>
-          <div class="modal-footer">
+          <div className="modal-footer">
             <button
               type="button"
               onClick={handleCloseClick}
-              class="btn btn-dark"
+              className="btn btn-dark"
               data-bs-dismiss="modal"
             >
               Close
