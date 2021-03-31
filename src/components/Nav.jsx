@@ -47,10 +47,15 @@ const Nav = ({ handleUserSearch, query }) => {
                 popular
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to={`/about`} className="nav-link active">
+                about
+              </Link>
+            </li>
             <li className="nav-item dropdown active">
               <a
                 className="nav-link dropdown-toggle"
-                href="#"
+                href="genres"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -59,10 +64,10 @@ const Nav = ({ handleUserSearch, query }) => {
                 genres
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                {genres.genres.map((genre) => {
+                {genres.genres.map((genre ,index) => {
                   return (
                     <li>
-                      <GenreLink {...genre} />
+                      <GenreLink {...genre} key={index}/>
                     </li>
                   );
                 })}

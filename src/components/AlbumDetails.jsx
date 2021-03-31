@@ -59,7 +59,7 @@ const AlbumDetails = () => {
           <div className="row">
             <div className="col-md-5 album-details-container">
               <img
-                className="img-fluid"
+                className="img-fluid box-shadow"
                 src={_.get(album, "images[0].url", null)}
               />
               <h3>{_.get(album, "name")}</h3>

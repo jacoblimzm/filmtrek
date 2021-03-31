@@ -99,9 +99,17 @@ h1 {
 
 /* ALBUM DETAILS */
 
+.album-details-container {
+  color: white;
+}
+
 .album-details-container img {
   max-width: 50%;
   color: white;
+}
+
+.list-group {
+  text-decoration: none;
 }
 
 /* FILM DETAILS  */
@@ -163,6 +171,11 @@ h1 {
 /* WATCHLIST */
 .empty-text {
   margin: 18% 0;
+}
+
+/* ABOUT */
+.tmdb-logo {
+  max-width: 20%;
 }
 
 /* ANIMATIONS */

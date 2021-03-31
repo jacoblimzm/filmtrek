@@ -1,5 +1,5 @@
 import filmsData from "../popularFilmResults.json";
-import watchlistReducer from "./reducers/watchlistReducer"
+import watchlistReducer from "./reducers/watchlistReducer";
 import axios from "axios";
 import dotenv from "dotenv";
 import { useEffect, useState, useReducer } from "react";
@@ -9,17 +9,18 @@ import LandingPage from "./LandingPage";
 import ResultsPage from "./ResultsPage";
 import FilmDetails from "./FilmDetails";
 import AlbumDetails from "./AlbumDetails";
-import WatchlistPage from "./WatchlistPage"
-import GenrePage from "./GenrePage"
-import PopularPage from "./PopularPage"
-import WatchlistContext from "./context/WatchlistContext"
+import WatchlistPage from "./WatchlistPage";
+import GenrePage from "./GenrePage";
+import PopularPage from "./PopularPage";
+import ErrorPage from "./ErrorPage";
+import AboutPage from "./AboutPage";
+import WatchlistContext from "./context/WatchlistContext";
 
 dotenv.config();
 
 const initialState = [];
 // initial state for useReducer usually will be an object. so you will access it using "state." in the reducer function later on.
 // but here we can use an array as that is what is relevant, and what we need to store is an array of film items.
-
 
 function App() {
   const [watchlistState, dispatch] = useReducer(watchlistReducer, initialState); // we want to be able to dispatch actions from the components, so we will have to pass them on using useContext.
@@ -51,45 +52,55 @@ function App() {
   return (
     // query state has to be maintained and passed into Nav so that when results in nav is clicked, the app knows what the user searched for previously.
     <Router>
-      <div className="App">
+      <div className="App min-vh-100">
         <Nav query={query} handleUserSearch={handleUserSearch} />
-        <Switch>
-          <Route exact path="/">
-            <LandingPage
-              popFilms={popFilms}
-              handleUserSearch={handleUserSearch}
-            />
-          </Route>
-          <WatchlistContext.Provider value={ {watchlistState: watchlistState, watchlistDispatch: dispatch}} >
-          <Route path="/results/:userSearch">
-            <ResultsPage />
-          </Route>
+        <WatchlistContext.Provider
+          value={{
+            watchlistState: watchlistState,
+            watchlistDispatch: dispatch,
+          }}
+        >
+          <Switch>
+            <Route exact path="/">
+              <LandingPage
+                popFilms={popFilms}
+                handleUserSearch={handleUserSearch}
+              />
+            </Route>
 
-          <Route path="/filmdetails/:movieId">
-            <FilmDetails />
-          </Route>
+            <Route path="/results/:userSearch">
+              <ResultsPage />
+            </Route>
 
-          <Route path="/albumdetails/:albumId">
-            <AlbumDetails />
-          </Route>
+            <Route path="/filmdetails/:movieId">
+              <FilmDetails />
+            </Route>
 
-          <Route path="/watchlist">
-            <WatchlistPage />
-          </Route>
+            <Route path="/albumdetails/:albumId">
+              <AlbumDetails />
+            </Route>
 
-          <Route path="/genres/:genreId">
-            <GenrePage />
-          </Route>
+            <Route path="/watchlist">
+              <WatchlistPage />
+            </Route>
 
-          <Route path="/popular">
-            <PopularPage  popFilms={popFilms}/>
-          </Route>
+            <Route path="/genres/:genreId">
+              <GenrePage />
+            </Route>
 
-          {/* <Route>
-            <ErrorPage />
-          </Route> */}
-          </WatchlistContext.Provider>
-        </Switch>
+            <Route path="/popular">
+              <PopularPage popFilms={popFilms} />
+            </Route>
+
+            <Route path="/about">
+              <AboutPage />
+            </Route>
+
+            <Route>
+              <ErrorPage />
+            </Route>
+          </Switch>
+        </WatchlistContext.Provider>
       </div>
     </Router>
   );
