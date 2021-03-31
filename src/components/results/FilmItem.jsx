@@ -57,22 +57,3 @@ const FilmItem = ({
 };
 
 export default FilmItem;
-
-{
-  /* <Link to={`/filmdetails/${id}`}>
-        <img
-          className="movie-search-img img-fluid"
-          src={
-            poster_path === null
-              ? `https://everyfad.com/static/images/movie_poster_placeholder.29ca1c87.svg`
-              : `https://image.tmdb.org/t/p/w342${poster_path}`
-          }
-          alt={title}
-        />
-      </Link>
-      <p>
-        {title} <span>({year})</span>
-      </p>
-      <p className="film-item-rating">{vote_average} ★</p>
-      {watchlistButton} */
-}
