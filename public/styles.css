@@ -52,7 +52,6 @@ h1 {
 }
 
 /* SEARCH RESULTS */
-
 .film-search-results {
   height: 70vh;
   overflow-y: auto;
@@ -73,10 +72,6 @@ h1 {
 }
 
 /* FILM ITEM  */
-/* .film-item {
-  box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.75);
-  background: ivory;
-} */
 
 .film-item-rating {
   margin: 0;
@@ -128,12 +123,6 @@ h1 {
   );
 }
 
-.box-shadow {
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
-}
-
 .film-title {
   position: absolute;
   bottom: 0;
@@ -174,11 +163,31 @@ h1 {
 }
 
 /* ABOUT */
-.tmdb-logo {
-  max-width: 20%;
+
+.about-page {
+  margin-top: 40px;
+  
 }
 
-/* ANIMATIONS */
+.block-text {
+  color: white;
+  background-color: rgba(104, 104, 104, 0.5);
+  padding: 10px;
+  border-radius: 0.5em;
+}
+
+.tmdb-logo {
+  max-width: 250px;
+}
+
+
+/* ANIMATIONS AND FLOURISHES */
+.box-shadow {
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+}
+
 .hvr-grow-shadow {
   display: inline-block;
   vertical-align: middle;

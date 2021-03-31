@@ -47,11 +47,6 @@ const Nav = ({ handleUserSearch, query }) => {
                 popular
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to={`/about`} className="nav-link active">
-                about
-              </Link>
-            </li>
             <li className="nav-item dropdown active">
               <a
                 className="nav-link dropdown-toggle"
@@ -72,6 +67,11 @@ const Nav = ({ handleUserSearch, query }) => {
                   );
                 })}
               </ul>
+            </li>
+            <li className="nav-item">
+              <Link to={`/about`} className="nav-link active">
+                about
+              </Link>
             </li>
           </ul>
           <SearchBar handleUserSearch={handleUserSearch} />

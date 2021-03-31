@@ -1,10 +1,14 @@
 import TMDBLogo from "../tmdblogo.svg";
 
 const AboutPage = () => {
+
+    var d = new Date();
+    var year = d.getFullYear();
+
   return (
-    <div className="landing-page d-flex align-content-center justify-content-center flex-wrap">
+    <div className="about-page d-flex align-content-center flex-wrap">
       <div className="mx-5">
-        <div className="landing-page-text">
+        <div className="block-text">
           <p>
             <em>Film Data:</em> All film-related metadata used in filmtrek,
             including actor, director and studio names, synopses, release dates,
@@ -24,6 +28,9 @@ const AboutPage = () => {
             <em>Trailers:</em> All videos and trailers used in filmtrek is
             supplied from <a href="https://www.youtube.com/">Youtube</a>
           </p>
+          <hr />
+          <p className="copyright"><em>© focused designs {year}</em></p>
+          <hr />
         </div>
       </div>
     </div>
