@@ -1,8 +1,7 @@
 import axios from "axios"
 import _ from "lodash";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
-import WatchlistContext from "../context/WatchlistContext"
+import { useEffect, useState } from "react";
 import Cast from "./Cast"
 import VideoModal from "./VideoModal"
 
@@ -65,6 +64,7 @@ const FilmDetails = () => {
                   <img
                     className="img-fluid"
                     src={`https://image.tmdb.org/t/p/w1280${_.get(film, "backdrop_path", null)}`}
+                    alt={_.get(film, "title", null)}
                   />
                   <h1 className="film-title">{_.get(film, "title", null)} ({year})</h1>
                 </div>
@@ -72,6 +72,7 @@ const FilmDetails = () => {
                   <img
                     className="film-meta-poster"
                     src={`https://image.tmdb.org/t/p/w1280${_.get(film, "poster_path", null)}`}
+                    alt={_.get(film, "title", null)}
                   />
                   <h4>"{_.get(film, "tagline", null)}"</h4>          
                   <p>Runtime: {_.get(film, "runtime", null)} mins</p>

@@ -52,7 +52,7 @@ const ResultsPage = () => {
 
   useEffect(() => {
     getSpotifyToken();
-    // searchSpotifyAlbums(encodedUserSearch);
+    searchSpotifyAlbums(encodedUserSearch);
     searchMovies(encodedUserSearch);
   }, [encodedUserSearch]); 
   // encodedUserSearch is in the dependency array because we want the results page to re-render whenever the user enters a new search result.

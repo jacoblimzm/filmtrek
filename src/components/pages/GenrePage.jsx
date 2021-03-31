@@ -9,7 +9,7 @@ const GenrePage = () => {
 
     const watchlistContext = useContext(WatchlistContext);
     const { genreId } = useParams();
-    console.log(genreId)
+    // console.log(genreId)
     const [movies, setMovies] = useState([])
 
     const getMoviesOfGenre = async () => {

@@ -59,9 +59,9 @@ const Nav = ({ handleUserSearch, query }) => {
                 genres
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                {genres.genres.map((genre ,index) => {
+              {genres.genres.map((genre, index) => {
                   return (
-                    <li>
+                    <li key={index}>
                       <GenreLink {...genre} key={index}/>
                     </li>
                   );
@@ -75,17 +75,6 @@ const Nav = ({ handleUserSearch, query }) => {
             </li>
           </ul>
           <SearchBar handleUserSearch={handleUserSearch} />
-          {/* <form className="d-flex">
-            <input
-              className="form-control me-2 mx-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-light" type="submit">
-              Find
-            </button>
-          </form> */}
         </div>
       </div>
     </nav>

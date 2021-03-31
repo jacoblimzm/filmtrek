@@ -1,10 +1,8 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import SearchBar from "../navigation/SearchBar";
 
 const LandingPage = ({ handleUserSearch, popFilms }) => {
   const getRandomMovieBackdrop = () => {
-    if (popFilms) {
+    if (popFilms[0] !== undefined) {
       const randomMovieSelection = Math.floor(Math.random() * popFilms.length);
       console.log(randomMovieSelection);
       const randomBackdropPath = popFilms[randomMovieSelection].backdrop_path;

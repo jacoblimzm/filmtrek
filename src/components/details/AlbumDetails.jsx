@@ -61,6 +61,7 @@ const AlbumDetails = () => {
               <img
                 className="img-fluid box-shadow"
                 src={_.get(album, "images[0].url", null)}
+                alt={_.get(album, "name")}
               />
               <h3>{_.get(album, "name")}</h3>
               <h4>{_.get(album, "artists[0].name")}</h4>

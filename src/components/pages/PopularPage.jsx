@@ -1,6 +1,5 @@
 import FilmItem from "../results/FilmItem";
-import { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useContext } from "react";
 import WatchlistContext from "../context/WatchlistContext";
 import { ACTIONS } from "../reducers/watchlistReducer";
 

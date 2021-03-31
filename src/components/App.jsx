@@ -1,4 +1,3 @@
-import filmsData from "../popularFilmResults.json";
 import watchlistReducer from "./reducers/watchlistReducer";
 import axios from "axios";
 import dotenv from "dotenv";
@@ -24,22 +23,22 @@ const initialState = [];
 
 function App() {
   const [watchlistState, dispatch] = useReducer(watchlistReducer, initialState); // we want to be able to dispatch actions from the components, so we will have to pass them on using useContext.
-  const [popFilms, setPopFilms] = useState(filmsData.results);
+  const [popFilms, setPopFilms] = useState([]);
   const [query, setQuery] = useState(""); // query state needs to be maintained and passed down to the Nav, so when user clicks "results" link, the app knows that a previous search was made and references that again.
 
   const getPopularMovies = async () => {
     const TMDBapi = process.env.REACT_APP_TMDB_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMDBapi}&language=en-US`;
     const response = await axios.get(url);
-    const filmsArr = response.data;
+    const filmsArr = response.data.results;
     // console.log(filmsArr);
     setPopFilms(filmsArr);
   };
 
   useEffect(() => {
     // ===== Execute Upon Pageload
-    // getPopularMovies();
-  });
+    getPopularMovies();
+  }, []);
 
   const handleUserSearch = (userQuery) => {
     // required to lift the state of the user search input to update the search state at the top of the app.

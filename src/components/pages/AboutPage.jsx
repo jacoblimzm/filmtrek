@@ -15,7 +15,7 @@ const AboutPage = () => {
             trailers and poster art is supplied by{" "}
             <a href="https://www.themoviedb.org/">The Movie Database</a> (TMDb).
           </p>
-          <img className="tmdb-logo" src={TMDBLogo} />
+          <img className="tmdb-logo" src={TMDBLogo} alt="tmdblogo"/>
           <p>
             filmtrek uses the TMDb API but is not endorsed or certified by TMDb.
           </p>
