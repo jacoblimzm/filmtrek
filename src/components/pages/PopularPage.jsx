@@ -7,6 +7,7 @@ const PopularPage = ({popFilms}) => {
 
     const watchlistContext = useContext(WatchlistContext);
 
+    // can make this pure by having a "context" as a secopnd parameter.
   const addToWatchlist = (filmObj) => {
     watchlistContext.watchlistDispatch({
       type: ACTIONS.ADD_TO_WATCHLIST,

@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import genres from "../../genres.json";
 import SearchBar from "./SearchBar";
 import GenreLink from "./GenreLink";
+import {ABOUT} from "../../constants"
+
 
 const Nav = ({ handleUserSearch, query }) => {
+
   const encodedQuery = encodeURI(query);
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -69,7 +72,8 @@ const Nav = ({ handleUserSearch, query }) => {
               </ul>
             </li>
             <li className="nav-item">
-              <Link to={`/about`} className="nav-link active">
+
+              <Link to={ABOUT} className="nav-link active">
                 about
               </Link>
             </li>

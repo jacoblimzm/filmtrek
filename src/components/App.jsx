@@ -14,6 +14,7 @@ import PopularPage from "./pages/PopularPage";
 import ErrorPage from "./pages/ErrorPage";
 import AboutPage from "./pages/AboutPage";
 import WatchlistContext from "./context/WatchlistContext";
+import {ABOUT } from "../constants"
 
 dotenv.config();
 

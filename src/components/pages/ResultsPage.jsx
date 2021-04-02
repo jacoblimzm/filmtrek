@@ -10,12 +10,12 @@ const ResultsPage = () => {
   const encodedUserSearch = encodeURI(userSearch);
 //   console.log(encodedUserSearch);
 
-  const [spotifyToken, setSpotifyToken] = useState("");
+  // const [spotifyToken, setSpotifyToken] = useState("");
   const [searchFilms, setSearchFilms] = useState([]);
-  const [searchAlbums, setSearchAlbums] = useState(albumsData.albums.items);
+  const [searchAlbums, setSearchAlbums] = useState([]);
   
-
-  const getSpotifyToken = async () => {
+  // the spotify token and search to be done at once. 
+  const getSpotifyToken = async (query) => {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const clientSecret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
     const tokenEP = "https://accounts.spotify.com/api/token";
@@ -28,10 +28,11 @@ const ResultsPage = () => {
     });
     const token = tokenResponse.data.access_token;
     // console.log(token);
-    setSpotifyToken(token);
+    // setSpotifyToken(token);
+    searchSpotifyAlbums(query, token)
   };
 
-  const searchSpotifyAlbums = async (query) => {
+  const searchSpotifyAlbums = async (query, spotifyToken) => { // refactor to accept query and token. make function pure.
     const url = `https://api.spotify.com/v1/search?q=${query}&type=album`;
     const response = await axios.get(url, {
       headers: {
@@ -51,8 +52,8 @@ const ResultsPage = () => {
   };
 
   useEffect(() => {
-    getSpotifyToken();
-    searchSpotifyAlbums(encodedUserSearch);
+    getSpotifyToken(encodedUserSearch);
+    // searchSpotifyAlbums(encodedUserSearch);
     searchMovies(encodedUserSearch);
   }, [encodedUserSearch]); 
   // encodedUserSearch is in the dependency array because we want the results page to re-render whenever the user enters a new search result.
