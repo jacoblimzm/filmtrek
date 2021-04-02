@@ -10,7 +10,7 @@ import VideoModal from "./VideoModal"
 const FilmDetails = () => {
 
   const { movieId } = useParams();
-  console.log(movieId);
+  // console.log(movieId);
   const [film, setFilm] = useState({});
   const [cast, setCast] = useState({});
   const [videoId, setVideoId] = useState("");
@@ -25,7 +25,7 @@ const FilmDetails = () => {
     // console.log(response.data);
     const filmObjResponse = response.data;
     const castArray = creditsResponse.data;
-    console.log(castArray)
+    // console.log(castArray)
     setFilm(filmObjResponse);
     setCast(castArray);
   };
