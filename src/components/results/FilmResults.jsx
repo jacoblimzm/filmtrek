@@ -1,13 +1,13 @@
 import FilmItem from "./FilmItem";
 import { useContext } from "react";
-import WatchlistContext from "../context/WatchlistContext";
+import {WatchlistContext} from "../context/WatchlistProvider";
 import { ACTIONS } from "../reducers/watchlistReducer";
 
 const FilmResults = ({ searchFilms }) => {
   const watchlistContext = useContext(WatchlistContext);
 
   const addToWatchlist = (filmObj) => {
-    watchlistContext.watchlistDispatch({
+    watchlistContext.dispatch({
       type: ACTIONS.ADD_TO_WATCHLIST,
       payload: {
         film: filmObj,
@@ -17,7 +17,7 @@ const FilmResults = ({ searchFilms }) => {
   };
 
   const removeFromWatchlist = (filmObj) => {
-    watchlistContext.watchlistDispatch({
+    watchlistContext.dispatch({
       type: ACTIONS.REMOVE_FROM_WATCHLIST,
       payload: {
         film: filmObj,

@@ -1,4 +1,3 @@
-import albumsData from "../../spotifyAlbums.json";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -23,6 +22,7 @@ const ResultsPage = () => {
     const tokenResponse = await axios.post(tokenEP, data, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
+        // this is what the browser/server will interpret the data as.
         Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
       },
     });

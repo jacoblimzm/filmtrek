@@ -13,17 +13,18 @@ import GenrePage from "./pages/GenrePage";
 import PopularPage from "./pages/PopularPage";
 import ErrorPage from "./pages/ErrorPage";
 import AboutPage from "./pages/AboutPage";
-import WatchlistContext from "./context/WatchlistContext";
+import WatchlistProvider from "./context/WatchlistProvider";
+
 import {ABOUT } from "../constants"
 
 dotenv.config();
 
-const initialState = [];
+// const initialState = [];
 // initial state for useReducer usually will be an object. so you will access it using "state." in the reducer function later on.
 // but here we can use an array as that is what is relevant, and what we need to store is an array of film items.
 
 function App() {
-  const [watchlistState, dispatch] = useReducer(watchlistReducer, initialState); // we want to be able to dispatch actions from the components, so we will have to pass them on using useContext.
+  // const [watchlistState, dispatch] = useReducer(watchlistReducer, initialState); // we want to be able to dispatch actions from the components, so we will have to pass them on using useContext.
   const [popFilms, setPopFilms] = useState([]);
   const [query, setQuery] = useState(""); // query state needs to be maintained and passed down to the Nav, so when user clicks "results" link, the app knows that a previous search was made and references that again.
 
@@ -54,12 +55,7 @@ function App() {
     <Router>
       <div className="App min-vh-100">
         <Nav query={query} handleUserSearch={handleUserSearch} />
-        <WatchlistContext.Provider
-          value={{
-            watchlistState: watchlistState,
-            watchlistDispatch: dispatch,
-          }}
-        >
+        <WatchlistProvider>
           <Switch>
             <Route exact path="/">
               <LandingPage
@@ -100,7 +96,7 @@ function App() {
               <ErrorPage />
             </Route>
           </Switch>
-        </WatchlistContext.Provider>
+        </WatchlistProvider>
       </div>
     </Router>
   );

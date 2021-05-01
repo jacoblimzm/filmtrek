@@ -1,7 +1,7 @@
 import FilmItem from "../results/FilmItem";
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
-import WatchlistContext from "../context/WatchlistContext";
+import {WatchlistContext} from "../context/WatchlistProvider";
 import { ACTIONS } from "../reducers/watchlistReducer";
 import axios from "axios";
 
@@ -24,7 +24,7 @@ const GenrePage = () => {
     }, [genreId]);
 
   const addToWatchlist = (filmObj) => {
-    watchlistContext.watchlistDispatch({
+    watchlistContext.dispatch({
       type: ACTIONS.ADD_TO_WATCHLIST,
       payload: {
         film: filmObj,
@@ -34,7 +34,7 @@ const GenrePage = () => {
   };
 
   const removeFromWatchlist = (filmObj) => {
-    watchlistContext.watchlistDispatch({
+    watchlistContext.dispatch({
       type: ACTIONS.REMOVE_FROM_WATCHLIST,
       payload: {
         film: filmObj,

@@ -1,6 +1,6 @@
 import FilmItem from "../results/FilmItem";
 import { useContext } from "react";
-import WatchlistContext from "../context/WatchlistContext";
+import {WatchlistContext} from "../context/WatchlistProvider";
 import { ACTIONS } from "../reducers/watchlistReducer";
 
 const PopularPage = ({popFilms}) => {
@@ -9,7 +9,7 @@ const PopularPage = ({popFilms}) => {
 
     // can make this pure by having a "context" as a secopnd parameter.
   const addToWatchlist = (filmObj) => {
-    watchlistContext.watchlistDispatch({
+    watchlistContext.dispatch({
       type: ACTIONS.ADD_TO_WATCHLIST,
       payload: {
         film: filmObj,
@@ -19,7 +19,7 @@ const PopularPage = ({popFilms}) => {
   };
 
   const removeFromWatchlist = (filmObj) => {
-    watchlistContext.watchlistDispatch({
+    watchlistContext.dispatch({
       type: ACTIONS.REMOVE_FROM_WATCHLIST,
       payload: {
         film: filmObj,
